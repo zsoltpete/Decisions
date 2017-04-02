@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -26,6 +27,8 @@ public class GameViewController implements Initializable {
 
     @FXML
     private Button backButton;
+    
+    
 
     /**
      * Initializes the controller class.
@@ -34,7 +37,6 @@ public class GameViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
 
     /**
@@ -43,12 +45,16 @@ public class GameViewController implements Initializable {
      */
     @FXML
     private void backToMenu(ActionEvent event) throws IOException {
-        Stage stage = (Stage) backButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/MenuView.fxml"));
-        
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add("/styles/menuview.css");
-        stage.setScene(scene);
+        Stage window = (Stage) backButton.getScene().getWindow();
+        Stage popUpWindow = new Stage();
+        popUpWindow.initModality(Modality.APPLICATION_MODAL);
+        popUpWindow.setTitle("Are you sure?");
+        Parent popUp = FXMLLoader.load(getClass().getResource("/fxml/PopUpView.fxml"));
+        popUpWindow.initOwner(window);
+        Scene scene = new Scene(popUp);
+        scene.getStylesheets().add("/styles/popupview.css");
+        popUpWindow.setScene(scene);
+        popUpWindow.showAndWait();
     }
     
 }
