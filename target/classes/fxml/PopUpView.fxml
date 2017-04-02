@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.petez.decisions.Controllers.PopUpViewController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="41.0" prefWidth="300.0" spacing="8.0">
+         <children>
+            <Label text="Are you sure to go back to Main menu?">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets top="8.0" />
+         </padding>
+      </VBox>
+      <HBox prefHeight="54.0" prefWidth="300.0" spacing="140.0">
+         <children>
+            <Button fx:id="okButton" mnemonicParsing="false" onAction="#okButtonPushed" text="Go back" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonPushed" text="Cancel" />
+         </children>
+         <padding>
+            <Insets left="16.0" right="16.0" top="16.0" />
+         </padding>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+   </children>
+</VBox>
