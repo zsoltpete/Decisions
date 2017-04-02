@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.petez.decisions;
+package com.petez.decisions.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
