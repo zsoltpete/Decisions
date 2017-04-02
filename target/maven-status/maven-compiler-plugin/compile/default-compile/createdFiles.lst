@@ -1,2 +1,3 @@
-com/petez/decisions/MainApp.class
 com/petez/decisions/Controllers/GameViewController.class
+com/petez/decisions/MainApp.class
+com/petez/decisions/Controllers/MenuViewController.class
