@@ -16,7 +16,7 @@ public class MainApp extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MenuView.fxml"));
         
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("/styles/gameview.css");
+        scene.getStylesheets().add("/styles/menuview.css");
         
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);
