@@ -14,7 +14,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="77.0" layoutY="200.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="177.0" styleClass="menu-Button" text="Start" AnchorPane.leftAnchor="100.0" />
-      <Button layoutX="300.0" layoutY="200.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="177.0" styleClass="menu-Button" text="Shop" AnchorPane.rightAnchor="100.0" />
+      <Button fx:id="startButton" layoutX="77.0" layoutY="200.0" mnemonicParsing="false" onAction="#startGame" prefHeight="62.0" prefWidth="177.0" styleClass="menu-button" text="Start" AnchorPane.leftAnchor="100.0" />
+      <Button fx:id="shopButton" layoutX="300.0" layoutY="200.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="177.0" styleClass="menu-button" text="Shop" AnchorPane.rightAnchor="100.0" />
    </children>
 </AnchorPane>
