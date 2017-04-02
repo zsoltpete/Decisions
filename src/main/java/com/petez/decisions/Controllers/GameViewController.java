@@ -29,12 +29,18 @@ public class GameViewController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
 
+    /**
+     * Action to go back to the Main menu
+     * @param event
+     */
     @FXML
     private void backToMenu(ActionEvent event) throws IOException {
         Stage stage = (Stage) backButton.getScene().getWindow();
