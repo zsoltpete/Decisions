@@ -27,7 +27,7 @@
 }
 
 .progress-bar > .track {
-  -fx-control-inner-background: #000000;
+  -fx-control-inner-background: #FFFFFF;
 }
 
 .progress-bar .bar {
