@@ -52,8 +52,6 @@ public class PopUpViewController implements Initializable {
         Stage parentWindow = (Stage) stage.getOwner();
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/menuview.css");
-        parentWindow.setWidth(600);
-        parentWindow.setHeight(496);
         parentWindow.setScene(scene);
     }
 
