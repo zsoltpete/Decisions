@@ -1,4 +1,5 @@
 com/petez/decisions/Controllers/GameViewController.class
 com/petez/decisions/Controllers/PopUpViewController.class
 com/petez/decisions/MainApp.class
+com/petez/decisions/Controllers/GameOverPopUpViewController.class
 com/petez/decisions/Controllers/MenuViewController.class

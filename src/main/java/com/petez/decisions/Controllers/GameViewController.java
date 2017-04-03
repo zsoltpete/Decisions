@@ -27,6 +27,10 @@ public class GameViewController implements Initializable {
 
     @FXML
     private Button backButton;
+    @FXML
+    private Button option1Button;
+    @FXML
+    private Button option2Button;
     
     
 
@@ -53,6 +57,20 @@ public class GameViewController implements Initializable {
         popUpWindow.initOwner(window);
         Scene scene = new Scene(popUp);
         scene.getStylesheets().add("/styles/popupview.css");
+        popUpWindow.setScene(scene);
+        popUpWindow.showAndWait();
+    }
+
+    @FXML
+    private void gameOver(ActionEvent event) throws IOException {
+        Stage window = (Stage) option2Button.getScene().getWindow();
+        Stage popUpWindow = new Stage();
+        popUpWindow.initModality(Modality.APPLICATION_MODAL);
+        popUpWindow.setTitle("Game Over");
+        Parent popUp = FXMLLoader.load(getClass().getResource("/fxml/GameOverPopUpView.fxml"));
+        popUpWindow.initOwner(window);
+        Scene scene = new Scene(popUp);
+        scene.getStylesheets().add("/styles/gameoverpopupview.css");
         popUpWindow.setScene(scene);
         popUpWindow.showAndWait();
     }
