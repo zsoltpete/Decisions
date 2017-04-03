@@ -16,18 +16,30 @@
    <children>
       <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="150.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="196.0" prefHeight="41.0" prefWidth="592.0" text="This year's harvest is bad, people are suffering, will you relieve them?" />
-      <Label layoutX="554.0" layoutY="14.0" text="250" />
+      <Label layoutX="543.0" layoutY="14.0" text="250" />
       <Button fx:id="backButton" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#backToMenu" styleClass="game-button" text="Menu" />
-      <Button layoutX="14.0" layoutY="334.0" mnemonicParsing="false" styleClass="game-button" text="Oprion 1" />
-      <Button layoutX="510.0" layoutY="334.0" mnemonicParsing="false" styleClass="game-button" text="Option 2" />
+      <Button fx:id="option1Button" layoutX="14.0" layoutY="334.0" mnemonicParsing="false" styleClass="game-button" text="Oprion 1" />
+      <Button fx:id="option2Button" layoutX="510.0" layoutY="334.0" mnemonicParsing="false" onAction="#gameOver" styleClass="game-button" text="Option 2" />
       <ProgressBar layoutX="99.0" layoutY="34.0" prefWidth="200.0" progress="0.5" styleClass="custom-progress-bar" />
       <ProgressBar layoutX="99.0" layoutY="63.0" prefWidth="200.0" progress="0.0" />
       <ProgressBar layoutX="326.0" layoutY="34.0" prefWidth="200.0" progress="0.0" />
       <ProgressBar layoutX="326.0" layoutY="63.0" prefWidth="200.0" progress="0.0" />
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="534.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="534.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="70.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="70.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="534.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/people.png" />
+         </image></ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="534.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/toy.png" />
+         </image></ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="70.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/coin.png" />
+         </image></ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="70.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/business.png" />
+         </image></ImageView>
       <Label layoutX="99.0" layoutY="107.0" prefHeight="36.0" prefWidth="200.0" text="Years:" textFill="#ebe1e1">
          <font>
             <Font size="35.0" />
@@ -38,5 +50,10 @@
             <Font size="35.0" />
          </font>
       </Label>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="568.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/coin.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
