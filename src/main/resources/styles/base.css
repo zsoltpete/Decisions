@@ -10,6 +10,10 @@
      -fx-text-fill: white;
 }
 
+.shop-label{
+    -fx-font: 20px "System";
+}
+
 .title-label{
     -fx-font: 36px "System";
 }
