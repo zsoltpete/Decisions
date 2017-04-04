@@ -14,7 +14,7 @@
       <Label alignment="CENTER" prefHeight="100.0" prefWidth="738.0" text="Game Over" />
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/game_over.png" />
+            <Image url="images/game_over.png" />
          </image></ImageView>
       <HBox prefHeight="84.0" prefWidth="600.0" spacing="10.0">
          <children>
