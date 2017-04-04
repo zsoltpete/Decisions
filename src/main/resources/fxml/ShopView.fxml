@@ -9,13 +9,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.petez.decisions.Controllers.ShopViewController">
    <children>
       <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="600.0" spacing="20.0">
          <children>
             <HBox prefHeight="40.0" prefWidth="580.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="105.0" text="Back" />
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBack" prefHeight="37.0" prefWidth="105.0" text="Back" />
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
