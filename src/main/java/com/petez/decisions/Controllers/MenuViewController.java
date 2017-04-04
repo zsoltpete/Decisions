@@ -48,5 +48,15 @@ public class MenuViewController implements Initializable {
         scene.getStylesheets().add("/styles/gameview.css");
         stage.setScene(scene);
     }
+
+    @FXML
+    private void goShop(ActionEvent event) throws IOException {
+        Stage stage = (Stage) startButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/ShopView.fxml"));
+        
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/styles/shopview.css");
+        stage.setScene(scene);
+    }
     
 }
