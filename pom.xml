@@ -36,8 +36,8 @@
     </developers>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+        <project.build.sourceEncoding>US-ASCII</project.build.sourceEncoding>
+        <project.build.outputEncoding>US-ASCII</project.build.outputEncoding>
         <mainClass>com.petez.decisions.MainApp</mainClass>
     </properties>
 
