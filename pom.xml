@@ -22,6 +22,12 @@
 			<url>http://www.opensource.org/licenses/mit-license.php</url>
 		</license>
     </licenses>
+    
+    <organization>
+		<name>Zsolt Pete</name>
+    </organization>
+        
+    <inceptionYear>2017</inceptionYear>
 
 
     <developers>
