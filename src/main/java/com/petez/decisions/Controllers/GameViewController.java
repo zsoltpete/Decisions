@@ -5,6 +5,7 @@
  */
 package com.petez.decisions.Controllers;
 
+import com.petez.decisions.Models.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +16,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -31,6 +35,32 @@ public class GameViewController implements Initializable {
     private Button option1Button;
     @FXML
     private Button option2Button;
+    @FXML
+    private Label cashLabel;
+    @FXML
+    private ProgressBar coinProgress;
+    @FXML
+    private ProgressBar peopleProgress;
+    @FXML
+    private ProgressBar funProgress;
+    @FXML
+    private ProgressBar businessProgress;
+    @FXML
+    private ImageView coinPotionImageView;
+    @FXML
+    private Label coinPotionLabel;
+    @FXML
+    private ImageView businessPotionImageView;
+    @FXML
+    private Label businessPotionLabel;
+    @FXML
+    private ImageView peoplePotionImageView;
+    @FXML
+    private Label peoplePotionLabel;
+    @FXML
+    private ImageView funPotionImageView;
+    @FXML
+    private Label funPotionLabel;
     
     
 
@@ -41,6 +71,10 @@ public class GameViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        User user = new User(1, "Petez", 0);
+        System.out.println(user.getName());
+        bindComponents(user);
+        
     }    
 
     /**
@@ -61,6 +95,12 @@ public class GameViewController implements Initializable {
         popUpWindow.showAndWait();
     }
 
+    
+    /**
+     * Initializes the controller class.
+     * @param url
+     * @param rb
+     */
     @FXML
     private void gameOver(ActionEvent event) throws IOException {
         Stage window = (Stage) option2Button.getScene().getWindow();
@@ -73,6 +113,27 @@ public class GameViewController implements Initializable {
         scene.getStylesheets().add("/styles/gameoverpopupview.css");
         popUpWindow.setScene(scene);
         popUpWindow.showAndWait();
+    }
+    
+    
+    /**
+     * Initializes the controller class.
+     * @param url
+     * @param rb
+     */
+    public void bindComponents(User user){
+        cashLabel.textProperty().bind(user.getCash());
+        
+        coinProgress.progressProperty().bind(user.getSkills().get(0));
+        businessProgress.progressProperty().bind(user.getSkills().get(1));
+        peopleProgress.progressProperty().bind(user.getSkills().get(2));
+        funProgress.progressProperty().bind(user.getSkills().get(3));
+        
+        coinPotionLabel.textProperty().bind(user.getPotions().get(0));
+        businessPotionLabel.textProperty().bind(user.getPotions().get(1));
+        peoplePotionLabel.textProperty().bind(user.getPotions().get(2));
+        funPotionLabel.textProperty().bind(user.getPotions().get(3));
+        
     }
     
 }
