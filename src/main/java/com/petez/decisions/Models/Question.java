@@ -23,6 +23,9 @@
  */
 package com.petez.decisions.Models;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 /**
  *
  * @author petez
@@ -30,15 +33,19 @@ package com.petez.decisions.Models;
 public class Question {
     
     private int id;
-    private String name;
-    private int coinValue;
-    private int businessValue;
-    private int peopleValue;
-    private int funValue;
+    private SimpleStringProperty name;
+    private SimpleStringProperty answer1;
+    private SimpleStringProperty answer2;
+    private double coinValue;
+    private double businessValue;
+    private double peopleValue;
+    private double funValue;
 
-    public Question(int id, String name, int coinValue, int businessValue, int peopleValue, int funValue) {
+    public Question(int id, String name, String answer1, String answer2, double coinValue, double businessValue, double peopleValue, double funValue) {
         this.id = id;
-        this.name = name;
+        this.name = new SimpleStringProperty( name);
+        this.answer1 = new SimpleStringProperty(answer1);
+        this.answer2 = new SimpleStringProperty(answer2);
         this.coinValue = coinValue;
         this.businessValue = businessValue;
         this.peopleValue = peopleValue;
@@ -49,48 +56,73 @@ public class Question {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getCoinValue() {
+    public double getCoinValue() {
         return coinValue;
     }
 
-    public int getBusinessValue() {
+    public double getBusinessValue() {
         return businessValue;
     }
 
-    public int getPeopleValue() {
+    public double getPeopleValue() {
         return peopleValue;
     }
 
-    public int getFunValue() {
+    public double getFunValue() {
         return funValue;
     }
+
+    public SimpleStringProperty getName() {
+        return name;
+    }
+
+    public SimpleStringProperty getAnswer1() {
+        return answer1;
+    }
+
+    public SimpleStringProperty getAnswer2() {
+        return answer2;
+    }
+
+
+    
+
+    
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setCoinValue(int coinValue) {
+    public void setCoinValue(double coinValue) {
         this.coinValue = coinValue;
     }
 
-    public void setBusinessValue(int businessValue) {
+    public void setBusinessValue(double businessValue) {
         this.businessValue = businessValue;
     }
 
-    public void setPeopleValue(int peopleValue) {
+    public void setPeopleValue(double peopleValue) {
         this.peopleValue = peopleValue;
     }
 
-    public void setFunValue(int funValue) {
+    public void setFunValue(double funValue) {
         this.funValue = funValue;
     }
+
+    public void setName(SimpleStringProperty name) {
+        this.name = name;
+    }
+
+    public void setAnswer1(SimpleStringProperty answer1) {
+        this.answer1 = answer1;
+    }
+
+    public void setAnswer2(SimpleStringProperty answer2) {
+        this.answer2 = answer2;
+    }
+
+    
+    
+    
     
 }
