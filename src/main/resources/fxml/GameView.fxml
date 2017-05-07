@@ -18,11 +18,11 @@
          <image>
             <Image url="images/business_man.png" />
          </image></ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="196.0" prefHeight="41.0" prefWidth="592.0" text="This year's harvest is bad, people are suffering, will you relieve them?" />
+      <Label fx:id="questionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="196.0" prefHeight="41.0" prefWidth="592.0" text="This year's harvest is bad, people are suffering, will you relieve them?" />
       <Label fx:id="cashLabel" layoutX="543.0" layoutY="14.0" text="250" />
       <Button fx:id="backButton" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#backToMenu" styleClass="game-button" text="Menu" />
-      <Button fx:id="option1Button" layoutX="14.0" layoutY="334.0" mnemonicParsing="false" styleClass="game-button" text="Oprion 1" />
-      <Button fx:id="option2Button" layoutX="510.0" layoutY="334.0" mnemonicParsing="false" onAction="#gameOver" styleClass="game-button" text="Option 2" />
+      <Button fx:id="option1Button" layoutX="14.0" layoutY="334.0" mnemonicParsing="false" onAction="#option1" styleClass="game-button" text="Oprion 1" />
+      <Button fx:id="option2Button" layoutX="510.0" layoutY="334.0" mnemonicParsing="false" onAction="#option2" styleClass="game-button" text="Option 2" />
       <ProgressBar fx:id="coinProgress" layoutX="99.0" layoutY="67.0" prefWidth="200.0" progress="0.5" styleClass="custom-progress-bar" />
       <ProgressBar fx:id="businessProgress" layoutX="99.0" layoutY="96.0" prefWidth="200.0" progress="0.0" />
       <ProgressBar fx:id="peopleProgress" layoutX="326.0" layoutY="67.0" prefWidth="200.0" progress="0.0" />
@@ -48,7 +48,7 @@
             <Font size="35.0" />
          </font>
       </Label>
-      <Label layoutX="326.0" layoutY="140.0" prefHeight="36.0" prefWidth="200.0" text="0" textFill="#a82121">
+      <Label fx:id="yearsLabel" layoutX="326.0" layoutY="140.0" prefHeight="36.0" prefWidth="200.0" text="0" textFill="#a82121">
          <font>
             <Font size="35.0" />
          </font>
@@ -60,25 +60,25 @@
       </ImageView>
       <HBox layoutX="189.0" layoutY="2.0" prefHeight="40.0" prefWidth="220.0">
          <children>
-            <ImageView fx:id="coinPotionImageView" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="coinPotionImageView" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#useCoinPotion" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="images/coin_white.png" />
                </image>
             </ImageView>
             <Label fx:id="coinPotionLabel" text="10" />
-            <ImageView fx:id="businessPotionImageView" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="businessPotionImageView" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#useBusinessPotion" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="images/business_white.png" />
                </image>
             </ImageView>
             <Label fx:id="businessPotionLabel" text="10" />
-            <ImageView fx:id="peoplePotionImageView" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="peoplePotionImageView" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#usePeoplePotion" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="images/people_white.png" />
                </image>
             </ImageView>
             <Label fx:id="peoplePotionLabel" text="10" />
-            <ImageView fx:id="funPotionImageView" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="funPotionImageView" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#useFunPotion" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="images/toy_white.png" />
                </image>
