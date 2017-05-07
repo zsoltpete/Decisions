@@ -5,10 +5,16 @@
  */
 package com.petez.decisions.Controllers;
 
+import com.petez.decisions.Models.Question;
 import com.petez.decisions.Models.User;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -62,7 +69,16 @@ public class GameViewController implements Initializable {
     @FXML
     private Label funPotionLabel;
     
+    @FXML
+    private Label questionLabel;
     
+    
+    Question actualQuestion;
+    List<Question> questions;
+    StringProperty years = new SimpleStringProperty("0");
+    User user;
+    @FXML
+    private Label yearsLabel;
 
     /**
      * Initializes the controller class.
@@ -71,10 +87,12 @@ public class GameViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        User user = new User(1, "Petez", 0);
+        user = new User(1, "Petez", 0);
         System.out.println(user.getName());
-        bindComponents(user);
         
+        questions = initQuestions();
+        actualQuestion = questions.get(0);
+        bindComponents();
     }    
 
     /**
@@ -101,7 +119,6 @@ public class GameViewController implements Initializable {
      * @param url
      * @param rb
      */
-    @FXML
     private void gameOver(ActionEvent event) throws IOException {
         Stage window = (Stage) option2Button.getScene().getWindow();
         Stage popUpWindow = new Stage();
@@ -121,7 +138,7 @@ public class GameViewController implements Initializable {
      * @param url
      * @param rb
      */
-    public void bindComponents(User user){
+    public void bindComponents(){
         cashLabel.textProperty().bind(user.getCash());
         
         coinProgress.progressProperty().bind(user.getSkills().get(0));
@@ -134,6 +151,76 @@ public class GameViewController implements Initializable {
         peoplePotionLabel.textProperty().bind(user.getPotions().get(2));
         funPotionLabel.textProperty().bind(user.getPotions().get(3));
         
+        questionLabel.textProperty().bind(actualQuestion.getName());
+        option1Button.textProperty().bind(actualQuestion.getAnswer1());
+        option2Button.textProperty().bind(actualQuestion.getAnswer2());
+        
     }
+    
+    public List<Question> initQuestions(){
+        List<Question> questions = new ArrayList<Question>();
+        
+        int i=1;
+        questions.add(new Question(i++, "Hogy vagy?", "Jol", "Nem jol", 0.05, 0.1, -0.05, 0.01));
+        questions.add(new Question(i++, "Jol szorakozol?", "Nem", "Igen", 0.05, 0.1, -0.05, 0.01));
+        questions.add(new Question(i++, "Hideg van", "Nagyon", "Nem", 0.05, 0.1, -0.05, 0.01));
+
+        return questions;
+        
+    }
+    
+    public void nextQuestion(){
+        int nextYear = Integer.parseInt(years.getValue())+1;
+        actualQuestion = questions.get(nextYear);
+        years.setValue(String.valueOf(nextYear));
+        bindComponents();
+    }
+
+    @FXML
+    public void option1(ActionEvent event) {
+        nextQuestion();
+        System.out.println(actualQuestion.getName().getValue());
+        
+    }
+
+    @FXML
+    public void option2(ActionEvent event) {
+        nextQuestion();
+    }
+
+    @FXML
+    public void useCoinPotion(MouseEvent event) {
+        int selectedPotion = 0;
+        updatePotion(selectedPotion);
+        
+    }
+
+    @FXML
+    public void useBusinessPotion(MouseEvent event) {
+        int selectedPotion = 1;
+        updatePotion(selectedPotion);
+    }
+
+    @FXML
+    public void usePeoplePotion(MouseEvent event) {
+        int selectedPotion = 2;
+        updatePotion(selectedPotion);
+    }
+
+    @FXML
+    public void useFunPotion(MouseEvent event) {
+        int selectedPotion = 3;
+        updatePotion(selectedPotion);
+    }
+    
+    public void updatePotion(int selectedPotion){
+        int potionCount = Integer.parseInt(user.getPotions().get(selectedPotion).getValue())-1;
+        if(potionCount >=0){
+            
+            user.getPotions().set(selectedPotion, new SimpleStringProperty(String.valueOf(potionCount)));
+            bindComponents();
+        }
+    }
+    
     
 }
