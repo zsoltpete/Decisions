@@ -68,5 +68,10 @@ public class Question {
         this.answers = answers;
     }
 
+    @Override
+    public String toString() {
+        return "Question{" + "id=" + id + ", name=" + name + ", answers=" + answers + '}';
+    }
+    
     
 }
