@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -92,7 +93,8 @@ public class GameViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        user = new User(1, "Petez", 0);
+        user = UserSettings.user;
+        initSkills();
         logger.info(user.getName());
         
         questions = questions = JSONHandler.readQuestions("file1.txt");
@@ -106,6 +108,7 @@ public class GameViewController implements Initializable {
      */
     @FXML
     private void backToMenu(ActionEvent event) throws IOException {
+        updateUser();
         Stage window = (Stage) backButton.getScene().getWindow();
         Stage popUpWindow = new Stage();
         popUpWindow.initModality(Modality.APPLICATION_MODAL);
@@ -124,17 +127,24 @@ public class GameViewController implements Initializable {
      * @param url
      * @param rb
      */
-    private void gameOver(ActionEvent event) throws IOException {
+    private void gameOver() {
+        updateUser();
         Stage window = (Stage) option2Button.getScene().getWindow();
         Stage popUpWindow = new Stage();
         popUpWindow.initModality(Modality.APPLICATION_MODAL);
         popUpWindow.setTitle("Game Over");
-        Parent popUp = FXMLLoader.load(getClass().getResource("/fxml/GameOverPopUpView.fxml"));
-        popUpWindow.initOwner(window);
+        Parent popUp;
+        try {
+            popUp = FXMLLoader.load(getClass().getResource("/fxml/GameOverPopUpView.fxml"));
+            popUpWindow.initOwner(window);
         Scene scene = new Scene(popUp);
         scene.getStylesheets().add("/styles/gameoverpopupview.css");
         popUpWindow.setScene(scene);
         popUpWindow.showAndWait();
+        } catch (IOException ex) {
+            logger.error(GameViewController.class.getName().toString() + ex);
+        }
+        
     }
     
     
@@ -161,18 +171,19 @@ public class GameViewController implements Initializable {
         option2Button.textProperty().bind(actualQuestion.getAnswers().get(1).getAnswer());
         
         yearsLabel.textProperty().bind(years);
-        
+        cashLabel.textProperty().bind(user.getCash());
     }
     
     public void nextQuestion(){
         int nextYear = Integer.parseInt(years.getValue())+1;
-        if(nextYear < questions.size()){
-            
+        if(nextYear < questions.size() && !sendGameOver()){
+            updateCash();
             actualQuestion = questions.get(nextYear);
             years.setValue(String.valueOf(nextYear));
             bindComponents();
         }else{
-            
+            bindComponents();
+            gameOver();
         }
         
     }
@@ -232,6 +243,15 @@ public class GameViewController implements Initializable {
         user.getSkills().set(3, new SimpleDoubleProperty(getBestResult(answer.getFunValue()+user.getSkills().get(3).getValue())));
     }
     
+    public void updateCash(){
+        int cash = Integer.parseInt(user.getCash().get());
+        user.getCash().set(String.valueOf(++cash));
+    }
+    
+    public void updateUser(){
+        UserSettings.user = user;
+    }
+    
     public double getBestResult(double input){
         if(input<0){
             return 0;
@@ -240,6 +260,23 @@ public class GameViewController implements Initializable {
         }else{
             return input;
         }
+    }
+    
+    public void initSkills(){
+        user.getSkills().set(0, new SimpleDoubleProperty(0.5));
+        user.getSkills().set(1, new SimpleDoubleProperty(0.5));
+        user.getSkills().set(2, new SimpleDoubleProperty(0.5));
+        user.getSkills().set(3, new SimpleDoubleProperty(0.5));
+    }
+    
+    public boolean sendGameOver(){
+        for(int i = 0;i<4;i++){
+            logger.info(user.getSkills().get(i).getValue().toString());
+            if(user.getSkills().get(i).get() == 0){
+                return true;
+            }
+        }
+        return false;
     }
     
 }
