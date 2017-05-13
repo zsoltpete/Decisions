@@ -189,9 +189,10 @@ public class GameViewController implements Initializable {
     }
 
     @FXML
-    public void useCoinPotion(MouseEvent event) {
+    public void useCoinPotion(MouseEvent event) throws IOException {
         int selectedPotion = 0;
         updatePotion(selectedPotion);
+        JSONHandler.readQuestions("file1.txt");
         
     }
 
