@@ -6,6 +6,7 @@
 package com.petez.decisions.Controllers;
 
 import com.petez.decisions.MainApp;
+import com.petez.decisions.Models.Answer;
 import com.petez.decisions.Models.Question;
 import com.petez.decisions.Models.User;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
@@ -169,11 +171,13 @@ public class GameViewController implements Initializable {
 
     @FXML
     public void option1(ActionEvent event) {
+        updateAttributes(0);
         nextQuestion();
     }
 
     @FXML
     public void option2(ActionEvent event) {
+        updateAttributes(1);
         nextQuestion();
     }
 
@@ -210,5 +214,23 @@ public class GameViewController implements Initializable {
         }
     }
     
+    public void updateAttributes(int index){
+        Answer answer = actualQuestion.getAnswers().get(index);
+        
+        user.getSkills().set(0, new SimpleDoubleProperty(getBestResult(answer.getCoinValue()+user.getSkills().get(0).getValue())));
+        user.getSkills().set(1, new SimpleDoubleProperty(getBestResult(answer.getBusinessValue()+user.getSkills().get(1).getValue())));
+        user.getSkills().set(2, new SimpleDoubleProperty(getBestResult(answer.getPeopleValue()+user.getSkills().get(2).getValue())));
+        user.getSkills().set(3, new SimpleDoubleProperty(getBestResult(answer.getFunValue()+user.getSkills().get(3).getValue())));
+    }
+    
+    public double getBestResult(double input){
+        if(input<0){
+            return 0;
+        }else if(input > 1){
+            return 1;
+        }else{
+            return input;
+        }
+    }
     
 }
