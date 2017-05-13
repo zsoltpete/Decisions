@@ -39,34 +39,18 @@ import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 /**
- *
+ * Class for handling JSON objects.
  * @author petez
  */
 public class JSONHandler {
     
     private static Logger logger = LoggerFactory.getLogger(JSONHandler.class);
     
-    public static void write(String location) throws IOException{
-        
-        JSONObject obj = new JSONObject();
-		obj.put("Name", "crunchify.com");
-		obj.put("Author", "App Shah");
- 
-		JSONArray company = new JSONArray();
-		company.add("Compnay: eBay");
-		company.add("Compnay: Paypal");
-		company.add("Compnay: Google");
-		obj.put("Company List", company);
- 
-		// try-with-resources statement based on post comment below :)
-		try (FileWriter file = new FileWriter(location)) {
-			file.write(obj.toJSONString());
-                        logger.info("Successfully Copied JSON Object to File...");
-                        logger.info("\nJSON Object: " + obj);
-		}
-    
-}
-    
+    /**
+     * Read JSON objects
+     * @param location Use to  locate JSON object file.
+     * @return A List with @{Question} objects.
+     */
     public static List<Question> readQuestions(String location){
         JSONParser parser = new JSONParser();
         List<Question> questions = new ArrayList<Question>();

@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 /**
  * FXML Controller class
- *
+ * Control pop up views.
  * @author petez
  */
 public class PopUpViewController implements Initializable {
@@ -29,22 +29,38 @@ public class PopUpViewController implements Initializable {
     @FXML
     private Button cancelButton;
     
+    /**
+     * Use to contain parent stage.
+     * Use when back to the parent.
+     */
     public Stage parentStage; 
 
+    /**
+     * Set parent stage.
+     * @param parentStage Represent the descent stage
+     */
     public void setParentStage(Stage parentStage) {
         this.parentStage = parentStage;
     }
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
 
+    /**
+     * Run when user click ok button.
+     * Go back to the parent stage.
+     * @param event Click event, when the user click the button.
+     * @throws IOException Input, Output Exception
+     */
     @FXML
-    private void okButtonPushed(ActionEvent event) throws IOException {
+    public void okButtonPushed(ActionEvent event) throws IOException {
         Stage stage = (Stage) okButton.getScene().getWindow();
         stage.close();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MenuView.fxml"));
@@ -55,8 +71,12 @@ public class PopUpViewController implements Initializable {
         parentWindow.setScene(scene);
     }
 
+    /**
+     * Run when user click cancel button.
+     * @param event Click event, when the user click the button.
+     */
     @FXML
-    private void cancelButtonPushed(ActionEvent event) {
+    public void cancelButtonPushed(ActionEvent event) {
         Stage stage = (Stage) cancelButton.getScene().getWindow();
         stage.close();
         

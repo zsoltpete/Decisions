@@ -33,7 +33,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
- *
+ *  Representing @{User} class.
  * @author petez
  */
 public class User {
@@ -45,10 +45,10 @@ public class User {
     private List<StringProperty> potions;
 
     /**
-     *
-     * @param id
-     * @param name
-     * @param cash
+     * Constructor of the @{User} class
+     * @param id Show the user id, which is an unique value.
+     * @param name Show user name.
+     * @param cash Represent user cash. This important to buy @{Potion}
      */
     public User(int id, String name, int cash) {
         DoubleProperty[] doubles = new DoubleProperty[4];
@@ -65,93 +65,99 @@ public class User {
     }
 
     /**
-     *
-     * @return
+     * Returns user's id.
+     * @return user's id.
      */
     public int getId() {
         return id;
     }
 
     /**
-     *
-     * @return
+     * Returns user's name.
+     * @return user's name.
      */
     public String getName() {
         return name;
     }
 
     /**
-     *
-     * @return
+     * Returns user's cash.
+     * @return user's cash.
      */
     public StringProperty getCash() {
         return cash;
     }
 
     /**
-     *
-     * @return
+     * Returns user's id.
+     * @return user's id.
      */
     public List<DoubleProperty> getSkills() {
         return skills;
     }
     
     /**
-     *
-     * @return
+     * Returns user's potions.
+     * @return user's potions.
      */
+    public List<StringProperty> getPotions() {
+        return potions;
+    }
+    
     @Override
     public String toString() {
         return "User{" + "id=" + id + ", name=" + name + ", cash=" + cash + '}';
     }
 
     /**
-     *
-     * @param id
+     * Set user's id.
+     * @param  user's id.
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     *
-     * @param name
+     * Set user's name.
+     * @param  user's name.
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     *
-     * @param cash
+     * Set user's cash.
+     * @param  user's cash.
      */
     public void setCash(int cash) {
         this.cash.setValue(String.valueOf(cash));
     }
 
     /**
-     *
-     * @param cash
+     * Set user's id.
+     * @param  user's id.
      */
     public void setCash(StringProperty cash) {
         this.cash = cash;
     }
 
     /**
-     *
-     * @param skills
+     * Set user's skills.
+     * @param  user's skills.
      */
     public void setSkills(List<DoubleProperty> skills) {
         this.skills = skills;
     }
 
+    /**
+     * Set user's skills.
+     * @param  user's skills.
+     */
     public void setPotions(List<StringProperty> potions) {
         this.potions = potions;
     }
 
-    public List<StringProperty> getPotions() {
-        return potions;
-    }
+    
 
     
     

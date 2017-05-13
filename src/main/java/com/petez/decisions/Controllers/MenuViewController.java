@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * FXML Controller class
- *
+ * Use to navigate to the shop or start the game.
  * @author petez
  */
 public class MenuViewController implements Initializable {
@@ -44,8 +44,13 @@ public class MenuViewController implements Initializable {
         logger.debug("MenuViewController initialized");
     }    
 
+    /**
+     * Run when user click start button.
+     * @param event Click event, when the user click the button.
+     * @throws IOException Input, Output Exception
+     */
     @FXML
-    private void startGame(ActionEvent event) throws IOException {
+    public void startGame(ActionEvent event) throws IOException {
         Stage stage = (Stage) startButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/GameView.fxml"));
         
@@ -54,8 +59,13 @@ public class MenuViewController implements Initializable {
         stage.setScene(scene);
     }
 
+    /**
+     * Run when user click shop button.
+     * @param event Click event, when the user click the button.
+     * @throws IOException Input, Output Exception
+     */
     @FXML
-    private void goShop(ActionEvent event) throws IOException {
+    public void goShop(ActionEvent event) throws IOException {
         Stage stage = (Stage) startButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/ShopView.fxml"));
         

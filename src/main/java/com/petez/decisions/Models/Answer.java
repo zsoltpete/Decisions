@@ -26,7 +26,7 @@ package com.petez.decisions.Models;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- *
+ * Represent answers
  * @author petez
  */
 public class Answer {
@@ -37,6 +37,14 @@ public class Answer {
     private double peopleValue;
     private double funValue;
 
+    /**
+     * Constructor to the Answer class
+     * @param answer Answer name
+     * @param coinValue Change of the coin value
+     * @param businessValue Change of the business value
+     * @param peopleValue Change of the people value
+     * @param funValue Change of the fun value
+     */
     public Answer(String answer, double coinValue, double businessValue, double peopleValue, double funValue) {
         this.answer = new SimpleStringProperty( answer);
         this.coinValue = coinValue;
@@ -45,46 +53,90 @@ public class Answer {
         this.funValue = funValue;
     }
 
+    /**
+     * Returns answer name
+     * @return answer name
+     */
     public SimpleStringProperty getAnswer() {
         return answer;
     }
 
+    /**
+     * Returns value change of coin.
+     * @return coin change
+     */
     public double getCoinValue() {
         return coinValue;
     }
 
+    /**
+     * Returns value change of business.
+     * @return business change
+     */
     public double getBusinessValue() {
         return businessValue;
     }
 
+    /**
+     * Returns value change of people.
+     * @return people change
+     */
     public double getPeopleValue() {
         return peopleValue;
     }
 
+    /**
+     * Returns value change of fun.
+     * @return fun change
+     */
     public double getFunValue() {
         return funValue;
     }
 
+    /**
+     * Set answer name.
+     * @param answer answer name.
+     */
     public void setAnswer(SimpleStringProperty answer) {
         this.answer = answer;
     }
 
+    /**
+     * Set coin change
+     * @param coinValue coin changing
+     */
     public void setCoinValue(double coinValue) {
         this.coinValue = coinValue;
     }
 
+    /**
+     * Set business change.
+     * @param businessValue business changing
+     */
     public void setBusinessValue(double businessValue) {
         this.businessValue = businessValue;
     }
 
+    /**
+     * Set people change
+     * @param peopleValue people changing
+     */
     public void setPeopleValue(double peopleValue) {
         this.peopleValue = peopleValue;
     }
 
+    /**
+     * Set fun change
+     * @param funValue fun changing
+     */
     public void setFunValue(double funValue) {
         this.funValue = funValue;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Answer{" + "answer=" + answer + ", coinValue=" + coinValue + ", businessValue=" + businessValue + ", peopleValue=" + peopleValue + ", funValue=" + funValue + '}';

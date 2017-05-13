@@ -37,7 +37,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * FXML Controller class
- *
+ * Class for control the play session of the game.
  * @author petez
  */
 public class GameViewController implements Initializable {
@@ -104,7 +104,7 @@ public class GameViewController implements Initializable {
 
     /**
      * Action to go back to the Main menu
-     * @param event
+     * @param event Click event, when the user click the button.
      */
     @FXML
     private void backToMenu(ActionEvent event) throws IOException {
@@ -120,14 +120,11 @@ public class GameViewController implements Initializable {
         popUpWindow.setScene(scene);
         popUpWindow.showAndWait();
     }
-
     
     /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
+     *Show a pop up window to the user.
      */
-    private void gameOver() {
+    public void gameOver() {
         updateUser();
         Stage window = (Stage) option2Button.getScene().getWindow();
         Stage popUpWindow = new Stage();
@@ -149,9 +146,9 @@ public class GameViewController implements Initializable {
     
     
     /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
+     * Binding user and question property to the view, like:
+     * cash, progress bars, potions, yaer and so on. 
+     * 
      */
     public void bindComponents(){
         cashLabel.textProperty().bind(user.getCash());
@@ -174,6 +171,10 @@ public class GameViewController implements Initializable {
         cashLabel.textProperty().bind(user.getCash());
     }
     
+    /**
+     * Increment year and cash and decides the next question.
+     * If the user has 0 value of the skills the game is over.
+     */
     public void nextQuestion(){
         int nextYear = Integer.parseInt(years.getValue())+1;
         if(nextYear < questions.size() && !sendGameOver()){
@@ -188,18 +189,31 @@ public class GameViewController implements Initializable {
         
     }
 
+    /**
+     * Run when user click on the left option and update the skills and call {@code nextQuestion()} method.
+     * @param event Click event, when the user click the button.
+     */
     @FXML
     public void option1(ActionEvent event) {
         updateAttributesWithAnswers(0);
         nextQuestion();
     }
 
+    /**
+     * Run when user click on the right option and update the skills and call {@code nextQuestion()} method.
+     * @param event Click event, when the user click the button.
+     */
     @FXML
     public void option2(ActionEvent event) {
         updateAttributesWithAnswers(1);
         nextQuestion();
     }
 
+    /**
+     * Run when user click and use a @{coin} potion
+     * @param event Click event, when the user click the button.
+     * @throws IOException Input, Output Exception
+     */
     @FXML
     public void useCoinPotion(MouseEvent event) throws IOException {
         int selectedPotion = 0;
@@ -207,24 +221,43 @@ public class GameViewController implements Initializable {
         
     }
 
+    /**
+     * Run when user click and use a @{business} potion
+     * @param event Click event, when the user click the button.
+     * @throws IOException Input, Output Exception
+     */
     @FXML
     public void useBusinessPotion(MouseEvent event) {
         int selectedPotion = 1;
         updatePotion(selectedPotion);
     }
 
+    /**
+     * Run when user click and use a @{people} potion
+     * @param event Click event, when the user click the button.
+     * @throws IOException Input, Output Exception
+     */
     @FXML
     public void usePeoplePotion(MouseEvent event) {
         int selectedPotion = 2;
         updatePotion(selectedPotion);
     }
 
+    /**
+     * Run when user click and use a @{fun} potion
+     * @param event Click event, when the user click the button.
+     * @throws IOException Input, Output Exception
+     */
     @FXML
     public void useFunPotion(MouseEvent event) {
         int selectedPotion = 3;
         updatePotion(selectedPotion);
     }
     
+    /**
+     * Decide the user have one or more potion of the selected potion
+     * @param selectedPotion Represent the selected potion index.
+     */
     public void updatePotion(int selectedPotion){
         int potionCount = Integer.parseInt(user.getPotions().get(selectedPotion).getValue())-1;
         if(potionCount >=0){
@@ -234,6 +267,10 @@ public class GameViewController implements Initializable {
         }
     }
     
+    /**
+     * Update the user skills
+     * @param index Represent the selected answer index
+     */
     public void updateAttributesWithAnswers(int index){
         Answer answer = actualQuestion.getAnswers().get(index);
         
@@ -243,15 +280,28 @@ public class GameViewController implements Initializable {
         user.getSkills().set(3, new SimpleDoubleProperty(getBestResult(answer.getFunValue()+user.getSkills().get(3).getValue())));
     }
     
+    /**
+     * Update the cash.
+     * User get one coin for every year
+     */
     public void updateCash(){
         int cash = Integer.parseInt(user.getCash().get());
         user.getCash().set(String.valueOf(++cash));
     }
     
+    /**
+     * Update the singleton user.
+     */
     public void updateUser(){
         UserSettings.user = user;
     }
     
+    /**
+     * Use to minimize or maximize skill point.
+     * The skill point never be under 0 or between 1.
+     * @param input
+     * @return
+     */
     public double getBestResult(double input){
         if(input<0){
             return 0;
@@ -262,6 +312,9 @@ public class GameViewController implements Initializable {
         }
     }
     
+    /**
+     * Initialize skill and add a start value.
+     */
     public void initSkills(){
         user.getSkills().set(0, new SimpleDoubleProperty(0.5));
         user.getSkills().set(1, new SimpleDoubleProperty(0.5));
@@ -269,6 +322,10 @@ public class GameViewController implements Initializable {
         user.getSkills().set(3, new SimpleDoubleProperty(0.5));
     }
     
+    /**
+     * User skills check.
+     * @return @{false} if user has no skills with 0 value @{true} if one of the user skills is 0.
+     */
     public boolean sendGameOver(){
         for(int i = 0;i<4;i++){
             logger.info(user.getSkills().get(i).getValue().toString());

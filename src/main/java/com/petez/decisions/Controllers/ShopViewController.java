@@ -43,6 +43,8 @@ public class ShopViewController implements Initializable {
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -85,6 +87,10 @@ public class ShopViewController implements Initializable {
         bindComponents();
     }
     
+    /**
+     * Update buttons state.
+     * If the user has no enough money can't buy anything.
+     */
     public void updateButtons(){
         int cash = Integer.parseInt(user.getCash().get());
         if(cash<10){
@@ -95,10 +101,17 @@ public class ShopViewController implements Initializable {
         }
     }
     
+    /**
+     * Binding properties to the view.
+     */
     public void bindComponents(){
         userCoinLabel.textProperty().bind(user.getCash());
     }
     
+    /**
+     * Update user cash property. 
+     * @param value Represent how much what the user spend on potions.
+     */
     public void updateUserCash(int value){
         int cash = Integer.parseInt(user.getCash().get());
         user.getCash().setValue(String.valueOf(cash-value));

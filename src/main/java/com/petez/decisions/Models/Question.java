@@ -28,7 +28,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
- *
+ * Represent Questions.
+ * Question will be displayed to the user.
  * @author petez
  */
 public class Question {
@@ -37,37 +38,70 @@ public class Question {
     private SimpleStringProperty name;
     private List<Answer> answers;
     
-
+    /**
+     * Constructor to Question
+     * @param id question id
+     * @param name question name
+     * @param answers answers to the questions
+     */
     public Question(int id, String name, List<Answer> answers) {
         this.id = id;
         this.name = new SimpleStringProperty( name);
         this.answers = answers;
     }
 
+    /**
+     * Returns question id.
+     * @return question id.
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Returns question name.
+     * @return question name.
+     */
     public SimpleStringProperty getName() {
         return name;
     }
 
+    /**
+     * Returns answers to the questions.
+     * @return answers to the questions.
+     */
     public List<Answer> getAnswers() {
         return answers;
     }
     
+    /**
+     * Set question id.
+     * @param  question id.
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Set question name.
+     * @param  question name.
+     */
     public void setName(SimpleStringProperty name) {
         this.name = name;
     }
 
+    /**
+     * Set question answers.
+     * @param  answers to the questions.
+     */
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Question{" + "id=" + id + ", name=" + name + ", answers=" + answers + '}';
