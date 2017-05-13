@@ -28,7 +28,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -60,37 +62,45 @@ public class JSONHandler {
     
 }
     
-    public static Question readQuestions(String location){
+    public static List<Question> readQuestions(String location){
         JSONParser parser = new JSONParser();
-        Question question = null;
+        List<Question> questions = new ArrayList<Question>();
         try {
-
+            
             Object obj = parser.parse(new FileReader(location));
-
+            System.out.println(location);   
             JSONObject jsonObject = (JSONObject) obj;
             System.out.println(jsonObject);
-
-            String id = (String) jsonObject.get("id");
+            
+            JSONArray questionJSonArray = (JSONArray) jsonObject.get("questions");
+            Iterator<JSONObject> iterator = questionJSonArray.iterator();
+            while (iterator.hasNext()) {
+                JSONObject jsonObjectIterator = (JSONObject) iterator.next();
+                
+            String id = (String) jsonObjectIterator.get("id");
             System.out.println(id);
 
-            String name = (String) jsonObject.get("name");
+            String name = (String) jsonObjectIterator.get("name");
             System.out.println(name);
-            String answer1 = (String) jsonObject.get("answer1");
+            String answer1 = (String) jsonObjectIterator.get("answer1");
             System.out.println(answer1);
-            String answer2 = (String) jsonObject.get("answer2");
+            String answer2 = (String) jsonObjectIterator.get("answer2");
             System.out.println(answer2);
-            String coinValue = (String) jsonObject.get("coin_value");
+            String coinValue = (String) jsonObjectIterator.get("coin_value");
             System.out.println(coinValue);
-            String businessValue = (String) jsonObject.get("business_value");
+            String businessValue = (String) jsonObjectIterator.get("business_value");
             System.out.println(businessValue);
-            String peopleValue = (String) jsonObject.get("people_value");
+            String peopleValue = (String) jsonObjectIterator.get("people_value");
             System.out.println(peopleValue);
-            String funValue = (String) jsonObject.get("fun_value");
+            String funValue = (String) jsonObjectIterator.get("fun_value");
             System.out.println(funValue);
             
             
-            question = new Question(Integer.parseInt(id), name, answer1, answer2, Double.parseDouble(coinValue), Double.parseDouble(businessValue), Double.parseDouble(peopleValue), Double.parseDouble(funValue));
+            Question question = new Question(Integer.parseInt(id), name, answer1, answer2, Double.parseDouble(coinValue), Double.parseDouble(businessValue), Double.parseDouble(peopleValue), Double.parseDouble(funValue));
             System.out.println(question.getName().getValue());
+            questions.add(question);
+            
+            }
             
 
         } catch (FileNotFoundException e) {
@@ -100,7 +110,7 @@ public class JSONHandler {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return question;
+        return questions;
 
     }
     

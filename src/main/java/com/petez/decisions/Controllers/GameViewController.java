@@ -90,7 +90,7 @@ public class GameViewController implements Initializable {
         user = new User(1, "Petez", 0);
         System.out.println(user.getName());
         
-        questions = initQuestions();
+        questions = questions = JSONHandler.readQuestions("file1.txt");
         actualQuestion = questions.get(0);
         bindComponents();
     }    
@@ -192,7 +192,7 @@ public class GameViewController implements Initializable {
     public void useCoinPotion(MouseEvent event) throws IOException {
         int selectedPotion = 0;
         updatePotion(selectedPotion);
-        JSONHandler.readQuestions("file1.txt");
+        
         
     }
 
