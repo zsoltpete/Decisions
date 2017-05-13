@@ -52,11 +52,11 @@ public class User {
      */
     public User(int id, String name, int cash) {
         DoubleProperty[] doubles = new DoubleProperty[4];
-        Arrays.fill(doubles,new SimpleDoubleProperty(1));
+        Arrays.fill(doubles,new SimpleDoubleProperty(0.5));
         skills = Arrays.asList(doubles);
         
         StringProperty[] strings = new StringProperty[4];
-        Arrays.fill(strings,new SimpleStringProperty("2"));
+        Arrays.fill(strings,new SimpleStringProperty("5"));
         potions = Arrays.asList(strings);
         
         this.id = id;

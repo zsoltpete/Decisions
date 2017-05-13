@@ -1,0 +1,74 @@
+{"questions":[{
+			  "id":"1",
+			  "name":"Egy munkatársad megkér hogy mosd fel a követ. Mit teszel?",
+			   "answers" [{
+			    "answer":"Felmosok",
+			    "coin_value":"0.2",
+			    "business_value": "-0.1",
+			    "people_value": "0.3",
+			    "fun_value":"-0.5"
+			    },
+			    {
+			    "answer":"Nevetek",
+			    "coin_value":"0.0",
+			    "business_value": "0.1",
+			    "people_value": "-0.1",
+			    "fun_value":"0.3"
+			    }]
+			  }
+{
+			  "id":"2",
+			  "name":"Kaptál egy ajándékot valakitől!",
+			   "answers" [{
+			    "answer":"Kibontom",
+			    "coin_value":"0.0",
+			    "business_value": "-0.3",
+			    "people_value": "-0.3",
+			    "fun_value":"0.1"
+			    },
+			    {
+			    "answer":"Eldobom",
+			    "coin_value":"0.0",
+			    "business_value": "0.0",
+			    "people_value": "0.1",
+			    "fun_value":"-0.1"
+			    }]
+			  }
+			  {
+			  "id":"3",
+			  "name":"El kell menned hamarabb a munkából de egy fontos feladatot bíztak rád amivel nem vagy kész.",
+			   "answers" [{
+			    "answer":"Megcsinálom",
+			    "coin_value":"0.2",
+			    "business_value": "0.2",
+			    "people_value": "-0.3",
+			    "fun_value":"-0.4"
+			    },
+			    {
+			    "answer":"Elmegyek",
+			    "coin_value":"-0.5",
+			    "business_value": "-0.2",
+			    "people_value": "0.2",
+			    "fun_value":"0.4"
+			    }]
+			  }
+			  {
+			  "id":"1",
+			  "name":"Furcsa szagokra lettél figyelmes. Mit csinálsz?",
+			   "answers" [{
+			    "answer":"Szólok",
+			    "coin_value":"0.0",
+			    "business_value": "0.0",
+			    "people_value": "-0.2",
+			    "fun_value":"0.2"
+			    },
+			    {
+			    "answer":"Nem szólok",
+			    "coin_value":"0.0",
+			    "business_value": "0.0",
+			    "people_value": "0.2",
+			    "fun_value":"0.0"
+			    }]
+			  }
+
+	      ]}

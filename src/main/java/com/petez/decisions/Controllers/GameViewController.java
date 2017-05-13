@@ -158,26 +158,34 @@ public class GameViewController implements Initializable {
         
         questionLabel.textProperty().bind(actualQuestion.getName());
         option1Button.textProperty().bind(actualQuestion.getAnswers().get(0).getAnswer());
-        option1Button.textProperty().bind(actualQuestion.getAnswers().get(1).getAnswer());
+        option2Button.textProperty().bind(actualQuestion.getAnswers().get(1).getAnswer());
+        
+        yearsLabel.textProperty().bind(years);
         
     }
     
     public void nextQuestion(){
         int nextYear = Integer.parseInt(years.getValue())+1;
-        actualQuestion = questions.get(nextYear);
-        years.setValue(String.valueOf(nextYear));
-        bindComponents();
+        if(nextYear < questions.size()){
+            
+            actualQuestion = questions.get(nextYear);
+            years.setValue(String.valueOf(nextYear));
+            bindComponents();
+        }else{
+            
+        }
+        
     }
 
     @FXML
     public void option1(ActionEvent event) {
-        updateAttributes(0);
+        updateAttributesWithAnswers(0);
         nextQuestion();
     }
 
     @FXML
     public void option2(ActionEvent event) {
-        updateAttributes(1);
+        updateAttributesWithAnswers(1);
         nextQuestion();
     }
 
@@ -185,6 +193,7 @@ public class GameViewController implements Initializable {
     public void useCoinPotion(MouseEvent event) throws IOException {
         int selectedPotion = 0;
         updatePotion(selectedPotion);
+        
     }
 
     @FXML
@@ -208,13 +217,13 @@ public class GameViewController implements Initializable {
     public void updatePotion(int selectedPotion){
         int potionCount = Integer.parseInt(user.getPotions().get(selectedPotion).getValue())-1;
         if(potionCount >=0){
-            
+            user.getSkills().set(selectedPotion, new SimpleDoubleProperty(0.2+user.getSkills().get(selectedPotion).getValue()));
             user.getPotions().set(selectedPotion, new SimpleStringProperty(String.valueOf(potionCount)));
             bindComponents();
         }
     }
     
-    public void updateAttributes(int index){
+    public void updateAttributesWithAnswers(int index){
         Answer answer = actualQuestion.getAnswers().get(index);
         
         user.getSkills().set(0, new SimpleDoubleProperty(getBestResult(answer.getCoinValue()+user.getSkills().get(0).getValue())));
