@@ -5,6 +5,7 @@
  */
 package com.petez.decisions.Controllers;
 
+import com.petez.decisions.Models.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,13 +30,25 @@ public class ShopViewController implements Initializable {
     private Button backButton;
     @FXML
     private Label userCoinLabel;
+    @FXML
+    private Button moneyButton;
+    @FXML
+    private Button businessButton;
+    @FXML
+    private Button peopleButton;
+    @FXML
+    private Button funButton;
 
+    User user;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        user = UserSettings.user;
+        updateButtons();
+        bindComponents();
     }    
 
     @FXML
@@ -46,6 +59,49 @@ public class ShopViewController implements Initializable {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/menuview.css");
         stage.setScene(scene);
+    }
+
+    @FXML
+    private void buyCoinPotion(ActionEvent event) {
+        updateUserCash(10);
+        bindComponents();
+    }
+
+    @FXML
+    private void buyBusinessPotion(ActionEvent event) {
+        updateUserCash(10);
+        bindComponents();
+    }
+
+    @FXML
+    private void buyPeoplePotion(ActionEvent event) {
+        updateUserCash(10);
+        bindComponents();
+    }
+
+    @FXML
+    private void buyFunPotion(ActionEvent event) {
+        updateUserCash(10);
+        bindComponents();
+    }
+    
+    public void updateButtons(){
+        int cash = Integer.parseInt(user.getCash().get());
+        if(cash<10){
+            moneyButton.setDisable(true);
+            businessButton.setDisable(true);
+            peopleButton.setDisable(true);
+            funButton.setDisable(true);
+        }
+    }
+    
+    public void bindComponents(){
+        userCoinLabel.textProperty().bind(user.getCash());
+    }
+    
+    public void updateUserCash(int value){
+        int cash = Integer.parseInt(user.getCash().get());
+        user.getCash().setValue(String.valueOf(cash-value));
     }
     
 }
