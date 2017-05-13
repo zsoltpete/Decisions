@@ -23,6 +23,7 @@
  */
 package com.petez.decisions.Controllers;
 
+import com.petez.decisions.Models.Answer;
 import com.petez.decisions.Models.Question;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -82,24 +83,32 @@ public class JSONHandler {
 
             String name = (String) jsonObjectIterator.get("name");
             System.out.println(name);
-            String answer1 = (String) jsonObjectIterator.get("answer1");
-            System.out.println(answer1);
-            String answer2 = (String) jsonObjectIterator.get("answer2");
-            System.out.println(answer2);
-            String coinValue = (String) jsonObjectIterator.get("coin_value");
-            System.out.println(coinValue);
-            String businessValue = (String) jsonObjectIterator.get("business_value");
-            System.out.println(businessValue);
-            String peopleValue = (String) jsonObjectIterator.get("people_value");
-            System.out.println(peopleValue);
-            String funValue = (String) jsonObjectIterator.get("fun_value");
-            System.out.println(funValue);
             
+            JSONArray answersJSonArray = (JSONArray) jsonObjectIterator.get("answers");
+            Iterator<JSONObject> answersJSonIterator = answersJSonArray.iterator();
             
-            Question question = new Question(Integer.parseInt(id), name, answer1, answer2, Double.parseDouble(coinValue), Double.parseDouble(businessValue), Double.parseDouble(peopleValue), Double.parseDouble(funValue));
-            System.out.println(question.getName().getValue());
+            List<Answer> answers = new ArrayList<Answer>();
+            
+            while (answersJSonIterator.hasNext()) {
+                JSONObject jsonAnswerObject = (JSONObject) answersJSonIterator.next();
+                 System.out.println(jsonAnswerObject);
+                String answerTitle = (String) jsonAnswerObject.get("answer");
+                System.out.println(answerTitle);
+                String coinValue = (String) jsonAnswerObject.get("coin_value");
+                System.out.println(coinValue);
+                String businessValue = (String) jsonAnswerObject.get("business_value");
+                System.out.println(businessValue);
+                String peopleValue = (String) jsonAnswerObject.get("people_value");
+                System.out.println(peopleValue);
+                String funValue = (String) jsonAnswerObject.get("fun_value");
+                System.out.println(funValue);
+                Answer answer = new Answer(answerTitle, Double.parseDouble(coinValue), Double.parseDouble(businessValue), Double.parseDouble(peopleValue), Double.parseDouble(funValue));
+                System.out.println(answer.toString());
+                answers.add(answer);
+                
+            }
+            Question question = new Question(Integer.parseInt(id), name,answers);
             questions.add(question);
-            
             }
             
 

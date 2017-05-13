@@ -152,20 +152,8 @@ public class GameViewController implements Initializable {
         funPotionLabel.textProperty().bind(user.getPotions().get(3));
         
         questionLabel.textProperty().bind(actualQuestion.getName());
-        option1Button.textProperty().bind(actualQuestion.getAnswer1());
-        option2Button.textProperty().bind(actualQuestion.getAnswer2());
-        
-    }
-    
-    public List<Question> initQuestions(){
-        List<Question> questions = new ArrayList<Question>();
-        
-        int i=1;
-        questions.add(new Question(i++, "Hogy vagy?", "Jol", "Nem jol", 0.05, 0.1, -0.05, 0.01));
-        questions.add(new Question(i++, "Jol szorakozol?", "Nem", "Igen", 0.05, 0.1, -0.05, 0.01));
-        questions.add(new Question(i++, "Hideg van", "Nagyon", "Nem", 0.05, 0.1, -0.05, 0.01));
-
-        return questions;
+        option1Button.textProperty().bind(actualQuestion.getAnswers().get(0).getAnswer());
+        option1Button.textProperty().bind(actualQuestion.getAnswers().get(1).getAnswer());
         
     }
     
