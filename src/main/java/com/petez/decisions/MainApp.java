@@ -1,5 +1,7 @@
 package com.petez.decisions;
 
+import com.petez.decisions.Controllers.UserSettings;
+import com.petez.decisions.Models.User;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +23,10 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         //Parent root = FXMLLoader.load(getClass().getResource("/fxml/GameView.fxml"));
+        
+        User user = new User(11, "Petez", 0);
+        UserSettings.user = user;
+        
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MenuView.fxml"));
         
         Scene scene = new Scene(root);
