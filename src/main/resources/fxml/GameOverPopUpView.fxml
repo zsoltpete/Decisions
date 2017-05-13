@@ -9,21 +9,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.petez.decisions.Controllers.GameOverPopUpViewController">
    <children>
       <Label alignment="CENTER" prefHeight="100.0" prefWidth="738.0" text="Game Over" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="141.0" fitWidth="122.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="images/game_over.png" />
-         </image></ImageView>
-      <HBox prefHeight="84.0" prefWidth="600.0" spacing="10.0">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="70.0" text="Button" />
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="70.0" text="Button" />
-         </children>
-         <padding>
-            <Insets bottom="16.0" left="125.0" top="16.0" />
-         </padding>
-      </HBox>
+         </image>
+         <VBox.margin>
+            <Insets bottom="8.0" />
+         </VBox.margin></ImageView>
+      <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBack" prefHeight="40.0" prefWidth="70.0" text="Back" />
    </children>
 </VBox>

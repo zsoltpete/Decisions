@@ -39,69 +39,50 @@
          <children>
             <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" spacing="10.0">
                <children>
-                  <Label styleClass="shop-label" text="You have health potion:" />
+                  <Label styleClass="shop-label" text="Money potion:" />
                   <Label styleClass="shop-label" text="10" />
-                  <Label styleClass="shop-label" text="100" />
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="images/coin_white.png" />
                      </image>
                   </ImageView>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="105.0" text="Buy" />
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets></HBox>
-            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" spacing="10.0">
-               <children>
-                  <Label styleClass="shop-label" text="You have money potion:" />
-                  <Label styleClass="shop-label" text="10" />
-                  <Label styleClass="shop-label" text="100" />
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="images/coin_white.png" />
-                     </image>
-                  </ImageView>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="105.0" text="Buy" />
+                  <Button fx:id="moneyButton" mnemonicParsing="false" onAction="#buyCoinPotion" prefHeight="37.0" prefWidth="105.0" text="Buy" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" spacing="10.0">
                <children>
-                  <Label styleClass="shop-label" text="You have business potion:" />
+                  <Label styleClass="shop-label" text="Business potion" />
                   <Label styleClass="shop-label" text="10" />
-                  <Label styleClass="shop-label" text="100" />
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="images/coin_white.png" />
                      </image>
                   </ImageView>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="105.0" text="Buy" />
+                  <Button fx:id="businessButton" mnemonicParsing="false" onAction="#buyBusinessPotion" prefHeight="37.0" prefWidth="105.0" text="Buy" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" spacing="10.0">
                <children>
-                  <Label styleClass="shop-label" text="You have people potion:" />
+                  <Label styleClass="shop-label" text="People potion:" />
                   <Label styleClass="shop-label" text="10" />
-                  <Label styleClass="shop-label" text="100" />
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="images/coin_white.png" />
                      </image>
                   </ImageView>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="105.0" text="Buy" />
+                  <Button fx:id="peopleButton" mnemonicParsing="false" onAction="#buyPeoplePotion" prefHeight="37.0" prefWidth="105.0" text="Buy" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" spacing="10.0">
                <children>
-                  <Label styleClass="shop-label" text="You have fun potion:" />
+                  <Label styleClass="shop-label" text="Fun potion:" />
                   <Label styleClass="shop-label" text="10" />
-                  <Label styleClass="shop-label" text="100" />
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="images/coin_white.png" />
                      </image>
                   </ImageView>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="105.0" text="Buy" />
+                  <Button fx:id="funButton" mnemonicParsing="false" onAction="#buyFunPotion" prefHeight="37.0" prefWidth="105.0" text="Buy" />
                </children>
             </HBox>
          </children>
