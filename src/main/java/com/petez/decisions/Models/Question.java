@@ -23,6 +23,7 @@
  */
 package com.petez.decisions.Models;
 
+import java.util.List;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -34,95 +35,38 @@ public class Question {
     
     private int id;
     private SimpleStringProperty name;
-    private SimpleStringProperty answer1;
-    private SimpleStringProperty answer2;
-    private double coinValue;
-    private double businessValue;
-    private double peopleValue;
-    private double funValue;
+    private List<Answer> answers;
+    
 
-    public Question(int id, String name, String answer1, String answer2, double coinValue, double businessValue, double peopleValue, double funValue) {
+    public Question(int id, String name, List<Answer> answers) {
         this.id = id;
         this.name = new SimpleStringProperty( name);
-        this.answer1 = new SimpleStringProperty(answer1);
-        this.answer2 = new SimpleStringProperty(answer2);
-        this.coinValue = coinValue;
-        this.businessValue = businessValue;
-        this.peopleValue = peopleValue;
-        this.funValue = funValue;
+        this.answers = answers;
     }
 
     public int getId() {
         return id;
     }
 
-    public double getCoinValue() {
-        return coinValue;
-    }
-
-    public double getBusinessValue() {
-        return businessValue;
-    }
-
-    public double getPeopleValue() {
-        return peopleValue;
-    }
-
-    public double getFunValue() {
-        return funValue;
-    }
-
     public SimpleStringProperty getName() {
         return name;
     }
 
-    public SimpleStringProperty getAnswer1() {
-        return answer1;
+    public List<Answer> getAnswers() {
+        return answers;
     }
-
-    public SimpleStringProperty getAnswer2() {
-        return answer2;
-    }
-
-
     
-
-    
-
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setCoinValue(double coinValue) {
-        this.coinValue = coinValue;
-    }
-
-    public void setBusinessValue(double businessValue) {
-        this.businessValue = businessValue;
-    }
-
-    public void setPeopleValue(double peopleValue) {
-        this.peopleValue = peopleValue;
-    }
-
-    public void setFunValue(double funValue) {
-        this.funValue = funValue;
     }
 
     public void setName(SimpleStringProperty name) {
         this.name = name;
     }
 
-    public void setAnswer1(SimpleStringProperty answer1) {
-        this.answer1 = answer1;
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 
-    public void setAnswer2(SimpleStringProperty answer2) {
-        this.answer2 = answer2;
-    }
-
-    
-    
-    
     
 }
