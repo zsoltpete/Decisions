@@ -36,11 +36,15 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  *
  * @author petez
  */
 public class JSONHandler {
+    
+    private static Logger logger = LoggerFactory.getLogger(JSONHandler.class);
     
     public static void write(String location) throws IOException{
         
@@ -57,8 +61,8 @@ public class JSONHandler {
 		// try-with-resources statement based on post comment below :)
 		try (FileWriter file = new FileWriter(location)) {
 			file.write(obj.toJSONString());
-			System.out.println("Successfully Copied JSON Object to File...");
-			System.out.println("\nJSON Object: " + obj);
+                        logger.info("Successfully Copied JSON Object to File...");
+                        logger.info("\nJSON Object: " + obj);
 		}
     
 }
@@ -69,9 +73,8 @@ public class JSONHandler {
         try {
             
             Object obj = parser.parse(new FileReader(location));
-            System.out.println(location);   
             JSONObject jsonObject = (JSONObject) obj;
-            System.out.println(jsonObject);
+            logger.debug(jsonObject.toJSONString());
             
             JSONArray questionJSonArray = (JSONArray) jsonObject.get("questions");
             Iterator<JSONObject> iterator = questionJSonArray.iterator();
@@ -79,10 +82,10 @@ public class JSONHandler {
                 JSONObject jsonObjectIterator = (JSONObject) iterator.next();
                 
             String id = (String) jsonObjectIterator.get("id");
-            System.out.println(id);
+            logger.debug(id);
 
             String name = (String) jsonObjectIterator.get("name");
-            System.out.println(name);
+            logger.debug(name);
             
             JSONArray answersJSonArray = (JSONArray) jsonObjectIterator.get("answers");
             Iterator<JSONObject> answersJSonIterator = answersJSonArray.iterator();
@@ -91,23 +94,17 @@ public class JSONHandler {
             
             while (answersJSonIterator.hasNext()) {
                 JSONObject jsonAnswerObject = (JSONObject) answersJSonIterator.next();
-                 System.out.println(jsonAnswerObject);
                 String answerTitle = (String) jsonAnswerObject.get("answer");
-                System.out.println(answerTitle);
                 String coinValue = (String) jsonAnswerObject.get("coin_value");
-                System.out.println(coinValue);
                 String businessValue = (String) jsonAnswerObject.get("business_value");
-                System.out.println(businessValue);
                 String peopleValue = (String) jsonAnswerObject.get("people_value");
-                System.out.println(peopleValue);
                 String funValue = (String) jsonAnswerObject.get("fun_value");
-                System.out.println(funValue);
                 Answer answer = new Answer(answerTitle, Double.parseDouble(coinValue), Double.parseDouble(businessValue), Double.parseDouble(peopleValue), Double.parseDouble(funValue));
-                System.out.println(answer.toString());
                 answers.add(answer);
-                
+                logger.debug(answer.toString());
             }
             Question question = new Question(Integer.parseInt(id), name,answers);
+            logger.debug(question.toString());
             questions.add(question);
             }
             

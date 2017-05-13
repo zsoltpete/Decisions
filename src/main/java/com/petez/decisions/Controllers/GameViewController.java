@@ -5,6 +5,7 @@
  */
 package com.petez.decisions.Controllers;
 
+import com.petez.decisions.MainApp;
 import com.petez.decisions.Models.Question;
 import com.petez.decisions.Models.User;
 import java.io.IOException;
@@ -28,6 +29,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * FXML Controller class
@@ -72,7 +75,7 @@ public class GameViewController implements Initializable {
     @FXML
     private Label questionLabel;
     
-    
+    private static Logger logger = LoggerFactory.getLogger(MainApp.class);
     Question actualQuestion;
     List<Question> questions;
     StringProperty years = new SimpleStringProperty("0");
@@ -88,7 +91,7 @@ public class GameViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         user = new User(1, "Petez", 0);
-        System.out.println(user.getName());
+        logger.info(user.getName());
         
         questions = questions = JSONHandler.readQuestions("file1.txt");
         actualQuestion = questions.get(0);
@@ -167,8 +170,6 @@ public class GameViewController implements Initializable {
     @FXML
     public void option1(ActionEvent event) {
         nextQuestion();
-        System.out.println(actualQuestion.getName().getValue());
-        
     }
 
     @FXML
@@ -180,8 +181,6 @@ public class GameViewController implements Initializable {
     public void useCoinPotion(MouseEvent event) throws IOException {
         int selectedPotion = 0;
         updatePotion(selectedPotion);
-        
-        
     }
 
     @FXML
