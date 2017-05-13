@@ -5,6 +5,7 @@
  */
 package com.petez.decisions.Controllers;
 
+import com.petez.decisions.MainApp;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +17,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * FXML Controller class
@@ -29,6 +32,8 @@ public class MenuViewController implements Initializable {
     @FXML
     private Button shopButton;
 
+    private static Logger logger = LoggerFactory.getLogger(MenuViewController.class);
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -36,7 +41,7 @@ public class MenuViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        logger.debug("MenuViewController initialized");
     }    
 
     @FXML
