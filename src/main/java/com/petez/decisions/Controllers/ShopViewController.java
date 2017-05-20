@@ -40,7 +40,8 @@ public class ShopViewController implements Initializable {
     private Button funButton;
 
     User user;
-    
+    int cash;
+    ShopHandler shopHandler;
     /**
      * Initializes the controller class.
      * @param url
@@ -49,8 +50,10 @@ public class ShopViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         user = UserSettings.user;
+        cash = Integer.parseInt(user.getCash().get());
         updateButtons();
         bindComponents();
+        shopHandler = new ShopHandler();
     }    
 
     @FXML
@@ -65,25 +68,26 @@ public class ShopViewController implements Initializable {
 
     @FXML
     private void buyCoinPotion(ActionEvent event) {
-        updateUserCash(10);
+        user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
         bindComponents();
     }
 
     @FXML
     private void buyBusinessPotion(ActionEvent event) {
-        updateUserCash(10);
+        user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
         bindComponents();
     }
 
     @FXML
     private void buyPeoplePotion(ActionEvent event) {
-        updateUserCash(10);
+        user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
         bindComponents();
     }
 
     @FXML
     private void buyFunPotion(ActionEvent event) {
-        updateUserCash(10);
+        
+        user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
         bindComponents();
     }
     
@@ -108,13 +112,7 @@ public class ShopViewController implements Initializable {
         userCoinLabel.textProperty().bind(user.getCash());
     }
     
-    /**
-     * Update user cash property. 
-     * @param value Represent how much what the user spend on potions.
-     */
-    public void updateUserCash(int value){
-        int cash = Integer.parseInt(user.getCash().get());
-        user.getCash().setValue(String.valueOf(cash-value));
-    }
+    
+
     
 }

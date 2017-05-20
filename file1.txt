@@ -6,7 +6,7 @@
 			    "coin_value":"0.2",
 			    "business_value": "-0.1",
 			    "people_value": "0.3",
-			    "fun_value":"-0.5"
+			    "fun_value":"-0.4"
 			    },
 			    {
 			    "answer":"Nevetek",

@@ -42,7 +42,7 @@ public class User {
     private String name;
     private StringProperty cash = new SimpleStringProperty();
     private List<DoubleProperty> skills;
-    private List<StringProperty> potions;
+    private List<DoubleProperty> potions;
 
     /**
      * Constructor of the @{User} class
@@ -52,12 +52,12 @@ public class User {
      */
     public User(int id, String name, int cash) {
         DoubleProperty[] doubles = new DoubleProperty[4];
-        Arrays.fill(doubles,new SimpleDoubleProperty(0.5));
+        Arrays.fill(doubles,new SimpleDoubleProperty(0));
         skills = Arrays.asList(doubles);
         
-        StringProperty[] strings = new StringProperty[4];
-        Arrays.fill(strings,new SimpleStringProperty("5"));
-        potions = Arrays.asList(strings);
+        DoubleProperty[] doubles2 = new DoubleProperty[4];
+        Arrays.fill(doubles2,new SimpleDoubleProperty(1));
+        potions = Arrays.asList(doubles2);
         
         this.id = id;
         this.name = name;
@@ -100,7 +100,7 @@ public class User {
      * Returns user's potions.
      * @return user's potions.
      */
-    public List<StringProperty> getPotions() {
+    public List<DoubleProperty> getPotions() {
         return potions;
     }
     
@@ -153,7 +153,7 @@ public class User {
      * Set user's skills.
      * @param  user's skills.
      */
-    public void setPotions(List<StringProperty> potions) {
+    public void setPotions(List<DoubleProperty> potions) {
         this.potions = potions;
     }
 

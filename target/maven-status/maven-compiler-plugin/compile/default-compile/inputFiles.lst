@@ -1,7 +1,7 @@
 /home/petez/NetBeansProjects/Decisions/src/main/java/com/petez/decisions/Controllers/GameViewController.java
 /home/petez/NetBeansProjects/Decisions/src/main/java/com/petez/decisions/Controllers/MenuViewController.java
-/home/petez/NetBeansProjects/Decisions/src/main/java/com/petez/decisions/Models/Potion.java
 /home/petez/NetBeansProjects/Decisions/src/main/java/com/petez/decisions/Controllers/GameOverPopUpViewController.java
+/home/petez/NetBeansProjects/Decisions/src/main/java/com/petez/decisions/Controllers/UserSettings.java
 /home/petez/NetBeansProjects/Decisions/src/main/java/com/petez/decisions/Controllers/ShopViewController.java
 /home/petez/NetBeansProjects/Decisions/src/main/java/com/petez/decisions/Controllers/JSONHandler.java
 /home/petez/NetBeansProjects/Decisions/src/main/java/com/petez/decisions/Controllers/PopUpViewController.java
@@ -9,3 +9,4 @@
 /home/petez/NetBeansProjects/Decisions/src/main/java/com/petez/decisions/MainApp.java
 /home/petez/NetBeansProjects/Decisions/src/main/java/com/petez/decisions/Models/User.java
 /home/petez/NetBeansProjects/Decisions/src/main/java/com/petez/decisions/Models/Answer.java
+/home/petez/NetBeansProjects/Decisions/src/main/java/com/petez/decisions/Controllers/ShopHandler.java

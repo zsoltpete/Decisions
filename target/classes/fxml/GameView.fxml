@@ -58,7 +58,7 @@
             <Image url="images/coin_white.png" />
          </image>
       </ImageView>
-      <HBox layoutX="189.0" layoutY="2.0" prefHeight="40.0" prefWidth="220.0">
+      <HBox layoutX="189.0" layoutY="2.0" prefHeight="40.0" prefWidth="300.0">
          <children>
             <ImageView fx:id="coinPotionImageView" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#useCoinPotion" pickOnBounds="true" preserveRatio="true">
                <image>

@@ -158,10 +158,10 @@ public class GameViewController implements Initializable {
         peopleProgress.progressProperty().bind(user.getSkills().get(2));
         funProgress.progressProperty().bind(user.getSkills().get(3));
         
-        coinPotionLabel.textProperty().bind(user.getPotions().get(0));
-        businessPotionLabel.textProperty().bind(user.getPotions().get(1));
-        peoplePotionLabel.textProperty().bind(user.getPotions().get(2));
-        funPotionLabel.textProperty().bind(user.getPotions().get(3));
+        coinPotionLabel.textProperty().bind(new SimpleStringProperty(String.valueOf((int)user.getPotions().get(0).get())));
+        businessPotionLabel.textProperty().bind(new SimpleStringProperty(String.valueOf((int)user.getPotions().get(1).get())));
+        peoplePotionLabel.textProperty().bind(new SimpleStringProperty(String.valueOf((int)user.getPotions().get(2).get())));
+        funPotionLabel.textProperty().bind(new SimpleStringProperty(String.valueOf((int)user.getPotions().get(3).get())));
         
         questionLabel.textProperty().bind(actualQuestion.getName());
         option1Button.textProperty().bind(actualQuestion.getAnswers().get(0).getAnswer());
@@ -259,10 +259,10 @@ public class GameViewController implements Initializable {
      * @param selectedPotion Represent the selected potion index.
      */
     public void updatePotion(int selectedPotion){
-        int potionCount = Integer.parseInt(user.getPotions().get(selectedPotion).getValue())-1;
+        Double potionCount = user.getPotions().get(selectedPotion).getValue()-1;
         if(potionCount >=0){
             user.getSkills().set(selectedPotion, new SimpleDoubleProperty(0.2+user.getSkills().get(selectedPotion).getValue()));
-            user.getPotions().set(selectedPotion, new SimpleStringProperty(String.valueOf(potionCount)));
+            user.getPotions().set(selectedPotion, new SimpleDoubleProperty(potionCount));
             bindComponents();
         }
     }
