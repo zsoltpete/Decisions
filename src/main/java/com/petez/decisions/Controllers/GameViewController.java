@@ -83,6 +83,7 @@ public class GameViewController implements Initializable {
     List<Question> questions;
     StringProperty years = new SimpleStringProperty("0");
     User user;
+    GameHandler gameHandler;
     @FXML
     private Label yearsLabel;
 
@@ -94,10 +95,11 @@ public class GameViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         user = UserSettings.user;
-        initSkills();
+        gameHandler = new GameHandler();
+        user = gameHandler.initSkills(user);
         logger.info(user.getName());
         
-        questions = questions = JSONHandler.readQuestions("file1.txt");
+        questions = JSONHandler.readQuestions("file1.txt");
         actualQuestion = questions.get(0);
         bindComponents();
     }    
@@ -177,8 +179,8 @@ public class GameViewController implements Initializable {
      */
     public void nextQuestion(){
         int nextYear = Integer.parseInt(years.getValue())+1;
-        if(nextYear < questions.size() && !sendGameOver()){
-            updateCash();
+        if(nextYear < questions.size() && !gameHandler.sendGameOver(user)){
+            user = gameHandler.updateCash(user);
             actualQuestion = questions.get(nextYear);
             years.setValue(String.valueOf(nextYear));
             bindComponents();
@@ -195,7 +197,7 @@ public class GameViewController implements Initializable {
      */
     @FXML
     public void option1(ActionEvent event) {
-        updateAttributesWithAnswers(0);
+        user = gameHandler.updateAttributesWithAnswers(user, actualQuestion,0);
         nextQuestion();
     }
 
@@ -205,7 +207,7 @@ public class GameViewController implements Initializable {
      */
     @FXML
     public void option2(ActionEvent event) {
-        updateAttributesWithAnswers(1);
+        user = gameHandler.updateAttributesWithAnswers(user, actualQuestion,1);
         nextQuestion();
     }
 
@@ -217,8 +219,8 @@ public class GameViewController implements Initializable {
     @FXML
     public void useCoinPotion(MouseEvent event) throws IOException {
         int selectedPotion = 0;
-        updatePotion(selectedPotion);
-        
+        user = gameHandler.updatePotion(user,selectedPotion);
+        bindComponents();
     }
 
     /**
@@ -229,7 +231,8 @@ public class GameViewController implements Initializable {
     @FXML
     public void useBusinessPotion(MouseEvent event) {
         int selectedPotion = 1;
-        updatePotion(selectedPotion);
+        user = gameHandler.updatePotion(user,selectedPotion);
+        bindComponents();
     }
 
     /**
@@ -240,7 +243,8 @@ public class GameViewController implements Initializable {
     @FXML
     public void usePeoplePotion(MouseEvent event) {
         int selectedPotion = 2;
-        updatePotion(selectedPotion);
+        user = gameHandler.updatePotion(user,selectedPotion);
+        bindComponents();
     }
 
     /**
@@ -251,89 +255,16 @@ public class GameViewController implements Initializable {
     @FXML
     public void useFunPotion(MouseEvent event) {
         int selectedPotion = 3;
-        updatePotion(selectedPotion);
+        user = gameHandler.updatePotion(user, selectedPotion);
+        bindComponents();
     }
-    
-    /**
-     * Decide the user have one or more potion of the selected potion
-     * @param selectedPotion Represent the selected potion index.
-     */
-    public void updatePotion(int selectedPotion){
-        Double potionCount = user.getPotions().get(selectedPotion).getValue()-1;
-        if(potionCount >=0){
-            user.getSkills().set(selectedPotion, new SimpleDoubleProperty(0.2+user.getSkills().get(selectedPotion).getValue()));
-            user.getPotions().set(selectedPotion, new SimpleDoubleProperty(potionCount));
-            bindComponents();
-        }
-    }
-    
-    /**
-     * Update the user skills
-     * @param index Represent the selected answer index
-     */
-    public void updateAttributesWithAnswers(int index){
-        Answer answer = actualQuestion.getAnswers().get(index);
-        
-        user.getSkills().set(0, new SimpleDoubleProperty(getBestResult(answer.getCoinValue()+user.getSkills().get(0).getValue())));
-        user.getSkills().set(1, new SimpleDoubleProperty(getBestResult(answer.getBusinessValue()+user.getSkills().get(1).getValue())));
-        user.getSkills().set(2, new SimpleDoubleProperty(getBestResult(answer.getPeopleValue()+user.getSkills().get(2).getValue())));
-        user.getSkills().set(3, new SimpleDoubleProperty(getBestResult(answer.getFunValue()+user.getSkills().get(3).getValue())));
-    }
-    
-    /**
-     * Update the cash.
-     * User get one coin for every year
-     */
-    public void updateCash(){
-        int cash = Integer.parseInt(user.getCash().get());
-        user.getCash().set(String.valueOf(++cash));
-    }
+
     
     /**
      * Update the singleton user.
      */
     public void updateUser(){
         UserSettings.user = user;
-    }
-    
-    /**
-     * Use to minimize or maximize skill point.
-     * The skill point never be under 0 or between 1.
-     * @param input
-     * @return
-     */
-    public double getBestResult(double input){
-        if(input<0){
-            return 0;
-        }else if(input > 1){
-            return 1;
-        }else{
-            return input;
-        }
-    }
-    
-    /**
-     * Initialize skill and add a start value.
-     */
-    public void initSkills(){
-        user.getSkills().set(0, new SimpleDoubleProperty(0.5));
-        user.getSkills().set(1, new SimpleDoubleProperty(0.5));
-        user.getSkills().set(2, new SimpleDoubleProperty(0.5));
-        user.getSkills().set(3, new SimpleDoubleProperty(0.5));
-    }
-    
-    /**
-     * User skills check.
-     * @return @{false} if user has no skills with 0 value @{true} if one of the user skills is 0.
-     */
-    public boolean sendGameOver(){
-        for(int i = 0;i<4;i++){
-            logger.info(user.getSkills().get(i).getValue().toString());
-            if(user.getSkills().get(i).get() == 0){
-                return true;
-            }
-        }
-        return false;
     }
     
 }

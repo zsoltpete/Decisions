@@ -23,6 +23,9 @@
  */
 package com.petez.decisions.Controllers;
 
+import com.petez.decisions.Models.User;
+import javafx.beans.property.SimpleDoubleProperty;
+
 /**
  *
  * @author petez
@@ -37,5 +40,21 @@ public class ShopHandler {
         cash = cash-value;
         return cash;
     }
+        
+        public User incrementPotion(User user, int potionIndex){
+            User changedUser = user;
+            double potionCounter = user.getPotions().get(potionIndex).get();
+            changedUser.getPotions().get(potionIndex).set(++potionCounter);
+            
+            return user;
+        }
+        
+        public Boolean userCanBuy(int value){
+            if(value>10){
+                return false;
+            }
+            
+            return true;
+        }
     
 }

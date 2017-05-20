@@ -51,9 +51,9 @@ public class ShopViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         user = UserSettings.user;
         cash = Integer.parseInt(user.getCash().get());
-        updateButtons();
-        bindComponents();
+        
         shopHandler = new ShopHandler();
+        bindComponents();
     }    
 
     @FXML
@@ -69,18 +69,21 @@ public class ShopViewController implements Initializable {
     @FXML
     private void buyCoinPotion(ActionEvent event) {
         user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
+        user = shopHandler.incrementPotion(user, 0);
         bindComponents();
     }
 
     @FXML
     private void buyBusinessPotion(ActionEvent event) {
         user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
+        user = shopHandler.incrementPotion(user, 1);
         bindComponents();
     }
 
     @FXML
     private void buyPeoplePotion(ActionEvent event) {
         user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
+        user = shopHandler.incrementPotion(user, 2);
         bindComponents();
     }
 
@@ -88,6 +91,7 @@ public class ShopViewController implements Initializable {
     private void buyFunPotion(ActionEvent event) {
         
         user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
+        user = shopHandler.incrementPotion(user, 3);
         bindComponents();
     }
     
@@ -97,11 +101,16 @@ public class ShopViewController implements Initializable {
      */
     public void updateButtons(){
         int cash = Integer.parseInt(user.getCash().get());
-        if(cash<10){
+        if(shopHandler.userCanBuy(cash)){
             moneyButton.setDisable(true);
             businessButton.setDisable(true);
             peopleButton.setDisable(true);
             funButton.setDisable(true);
+        }else{
+            moneyButton.setDisable(false);
+            businessButton.setDisable(false);
+            peopleButton.setDisable(false);
+            funButton.setDisable(false);
         }
     }
     
@@ -110,6 +119,7 @@ public class ShopViewController implements Initializable {
      */
     public void bindComponents(){
         userCoinLabel.textProperty().bind(user.getCash());
+        updateButtons();
     }
     
     
