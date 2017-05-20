@@ -31,7 +31,7 @@ import org.junit.Test;
  *
  * @author petez
  */
-public class TestShopViewController {
+public class TestShopHandler {
     
     @Test
     public void testupdateUserCash(){
