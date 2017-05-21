@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import static org.mockito.Mockito.*;
 import junit.framework.Assert;
 import org.junit.Test;
 
