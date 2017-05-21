@@ -94,11 +94,14 @@ public class JSONHandler {
             
 
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.toString());
+            //e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.toString());
+            //e.printStackTrace();
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.toString());
+            //e.printStackTrace();
         }
         return questions;
 
