@@ -25,7 +25,9 @@ package com.petez.decisions.Models;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -103,11 +105,13 @@ public class User {
     public List<DoubleProperty> getPotions() {
         return potions;
     }
-    
+
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", name=" + name + ", cash=" + cash + '}';
+        return "User{" + "id=" + id + ", name=" + name + ", cash=" + cash + ", skills=" + skills + ", potions=" + potions + '}';
     }
+    
+    
 
     /**
      * Set user's id.
@@ -155,6 +159,65 @@ public class User {
      */
     public void setPotions(List<DoubleProperty> potions) {
         this.potions = potions;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + this.id;
+        hash = 71 * hash + Objects.hashCode(this.name);
+        hash = 71 * hash + Objects.hashCode(this.cash);
+        hash = 71 * hash + Objects.hashCode(this.skills);
+        hash = 71 * hash + Objects.hashCode(this.potions);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final User other = (User) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        /*
+        if (!Objects.equals(this.cash, other.cash)) {
+            return false;
+        }
+        if (!Objects.equals(this.skills, other.skills)) {
+            return false;
+        }
+        if (!Objects.equals(this.potions, other.potions)) {
+            return false;
+        }*/
+        
+        if(!this.cash.getValue().equals(other.cash.getValue())){
+            return false;
+        }
+        
+        for (int i = 0; i < this.skills.size(); i++) {
+            if(!this.skills.get(i).getValue().equals(other.skills.get(i).getValue())){
+                return false;
+            }
+	}
+        
+        for (int i = 0; i < this.potions.size(); i++) {
+            if(!this.potions.get(i).getValue().equals(other.potions.get(i).getValue())){
+                return false;
+            }
+	}
+        
+        return true;
     }
 
     

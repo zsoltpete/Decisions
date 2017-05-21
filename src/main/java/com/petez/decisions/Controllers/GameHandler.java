@@ -61,8 +61,7 @@ public class GameHandler {
      * Update the user skills
      * @param index Represent the selected answer index
      */
-    public User updateAttributesWithAnswers(User user, Question actualQuestion, int index){
-        Answer answer = actualQuestion.getAnswers().get(index);
+    public User updateAttributesWithAnswers(User user, Answer answer){
         
         user.getSkills().set(0, new SimpleDoubleProperty(getBestResult(answer.getCoinValue()+user.getSkills().get(0).getValue())));
         user.getSkills().set(1, new SimpleDoubleProperty(getBestResult(answer.getBusinessValue()+user.getSkills().get(1).getValue())));

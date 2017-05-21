@@ -1,5 +1,6 @@
 
 import com.petez.decisions.Controllers.ShopHandler;
+import com.petez.decisions.Models.User;
 import junit.framework.Assert;
 import org.junit.Test;
 
@@ -33,11 +34,33 @@ import org.junit.Test;
  */
 public class TestShopHandler {
     
+    public User getMockUser(){
+        User user = new User(2, "Test", 0);
+        return user;
+    }
+    
     @Test
     public void testupdateUserCash(){
-        ShopHandler shopViewController = new ShopHandler();
-        int value = shopViewController.updateUserCash(10,5);
+        ShopHandler shopHandler = new ShopHandler();
+        int value = shopHandler.updateUserCash(10,5);
         Assert.assertEquals(value, 10-5);
+    }
+    
+    @Test
+    public void testUserCanBuy(){
+        ShopHandler shopHandler = new ShopHandler();
+        boolean value = shopHandler.userCanBuy(0);
+        Assert.assertEquals(value, true);
+    }
+    
+    @Test
+    public void testIncreasePotion(){
+        ShopHandler shopHandler = new ShopHandler();
+        User user = getMockUser();
+        user.getPotions().get(0).set(2.0);
+        
+        boolean value = shopHandler.userCanBuy(0);
+        Assert.assertEquals(shopHandler.incrementPotion(getMockUser(), 0), user);
     }
     
 }

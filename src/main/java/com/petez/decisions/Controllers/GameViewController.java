@@ -197,7 +197,7 @@ public class GameViewController implements Initializable {
      */
     @FXML
     public void option1(ActionEvent event) {
-        user = gameHandler.updateAttributesWithAnswers(user, actualQuestion,0);
+        user = gameHandler.updateAttributesWithAnswers(user, actualQuestion.getAnswers().get(0));
         nextQuestion();
     }
 
@@ -207,7 +207,7 @@ public class GameViewController implements Initializable {
      */
     @FXML
     public void option2(ActionEvent event) {
-        user = gameHandler.updateAttributesWithAnswers(user, actualQuestion,1);
+        user = gameHandler.updateAttributesWithAnswers(user, actualQuestion.getAnswers().get(1));
         nextQuestion();
     }
 
