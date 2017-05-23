@@ -25,6 +25,7 @@ package com.petez.decisions.Controllers;
 
 import com.petez.decisions.Models.Answer;
 import com.petez.decisions.Models.Question;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -107,5 +108,59 @@ public class JSONHandler {
 
     }
     
+      public static void highScoreWrite(Integer years, String location) {
+
+        JSONObject obj = new JSONObject();
+        obj.put("name", UserSettings.user.getName());
+        obj.put("point", years);
+
+        try (FileWriter file = new FileWriter(location)) {
+
+            file.write(obj.toJSONString());
+            file.flush();
+
+        } catch (IOException e) {
+            logger.error(e.toString());
+        }
+
+        logger.info("Successful write hightScore");
+
+    }
+
+    public static Integer highScoreRead(String location){
+    JSONParser parser = new JSONParser();
+        double point = 0.0;
+        try {
+
+            Object obj = parser.parse(new FileReader(location));
+
+            JSONObject jsonObject = (JSONObject) obj;
+
+            String name = (String) jsonObject.get("name");
+
+            point = (Long)jsonObject.get("point");
+
+        } catch (FileNotFoundException e) {
+            logger.error(e.toString());
+            //e.printStackTrace();
+        } catch (IOException e) {
+            logger.error(e.toString());
+            //e.printStackTrace();
+        } catch (ParseException e) {
+            logger.error(e.toString());
+            //e.printStackTrace();
+        }
+        System.out.println("fdfsdfda");
+        return (int)point;
+    }
+    
+    public static Boolean isExistLastScore(String location){
+        File f = new File(location);
+        if(f.exists() && !f.isDirectory()) { 
+            return true;
+        }
+        return false;
+        
+    }
     
 }

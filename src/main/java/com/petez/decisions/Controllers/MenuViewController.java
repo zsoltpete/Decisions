@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +34,8 @@ public class MenuViewController implements Initializable {
     private Button shopButton;
 
     private static Logger logger = LoggerFactory.getLogger(MenuViewController.class);
+    @FXML
+    private Label highScoreLabel;
     
     /**
      * Initializes the controller class.
@@ -42,6 +45,12 @@ public class MenuViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         logger.debug("MenuViewController initialized");
+        String location = ".files/last-score.json";
+        if(!JSONHandler.isExistLastScore(location)){
+            JSONHandler.highScoreWrite(0, location);
+        }
+        String lastScore = String.valueOf(JSONHandler.highScoreRead(location));
+        highScoreLabel.setText(lastScore);
     }    
 
     /**
