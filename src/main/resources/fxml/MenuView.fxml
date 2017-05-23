@@ -16,5 +16,7 @@
       </Label>
       <Button fx:id="startButton" layoutX="77.0" layoutY="200.0" mnemonicParsing="false" onAction="#startGame" prefHeight="62.0" prefWidth="177.0" styleClass="menu-button" text="Start" AnchorPane.leftAnchor="100.0" />
       <Button fx:id="shopButton" layoutX="300.0" layoutY="200.0" mnemonicParsing="false" onAction="#goShop" prefHeight="62.0" prefWidth="177.0" styleClass="menu-button" text="Shop" AnchorPane.rightAnchor="100.0" />
+      <Label layoutX="173.0" layoutY="319.0" styleClass="title-label" text="Last score: " />
+      <Label fx:id="highScoreLabel" layoutX="396.0" layoutY="319.0" styleClass="title-label" />
    </children>
 </AnchorPane>
