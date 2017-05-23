@@ -47,7 +47,7 @@ public class User {
     private List<DoubleProperty> potions;
 
     /**
-     * Constructor of the @{User} class
+     * Constructs a new User attribute with the given id, name and cash.
      * @param id Show the user id, which is an unique value.
      * @param name Show user name.
      * @param cash Represent user cash. This important to buy @{Potion}

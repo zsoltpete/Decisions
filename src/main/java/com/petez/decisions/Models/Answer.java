@@ -38,7 +38,7 @@ public class Answer {
     private double funValue;
 
     /**
-     * Constructor to the Answer class
+     * Constructs a new Answer attribute with the given answer, coinValue, businessValue, peopleVale, funValue.
      * @param answer Answer name
      * @param coinValue Change of the coin value
      * @param businessValue Change of the business value

@@ -40,7 +40,7 @@ public class Question {
     private List<Answer> answers;
     
     /**
-     * Constructor to Question
+     * Constructs a new Question attribute with the given id,name and answers.
      * @param id question id
      * @param name question name
      * @param answers answers to the questions
