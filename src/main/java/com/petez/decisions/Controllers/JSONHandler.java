@@ -139,7 +139,7 @@ public class JSONHandler {
      */
     public static Integer lastScoreRead(String location){
     JSONParser parser = new JSONParser();
-        double point = 3.0;
+        double point = 0.0;
         try {
 
             Object obj = parser.parse(new FileReader(System.getProperty("user.home") + "/" + location));
