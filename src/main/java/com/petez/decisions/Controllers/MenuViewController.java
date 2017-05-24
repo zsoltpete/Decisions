@@ -47,6 +47,7 @@ public class MenuViewController implements Initializable {
         logger.debug("MenuViewController initialized");
         String location = ".files/last-score.json";
         if(!JSONHandler.isExistLastScore(location)){
+            JSONHandler.createFolder(".files");
             JSONHandler.highScoreWrite(0, location);
         }
         String lastScore = String.valueOf(JSONHandler.highScoreRead(location));
