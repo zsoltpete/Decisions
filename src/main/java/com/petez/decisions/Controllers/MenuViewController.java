@@ -1,7 +1,25 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The MIT License
+ *
+ * Copyright 2017 Zsolt Pete.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 package com.petez.decisions.Controllers;
 
@@ -38,9 +56,9 @@ public class MenuViewController implements Initializable {
     private Label highScoreLabel;
     
     /**
-     * Initializes the controller class.
-     * @param url
-     * @param rb
+     * Called to initialize a controller after its root element has been completely processed.
+     * @param url The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param rb The resources used to localize the root object, or null if the root object was not localized.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -48,14 +66,14 @@ public class MenuViewController implements Initializable {
         String location = ".files/last-score.json";
         if(!JSONHandler.isExistLastScore(location)){
             JSONHandler.createFolder(".files");
-            JSONHandler.highScoreWrite(0, location);
+            JSONHandler.lastScoreWrite(0, location);
         }
-        String lastScore = String.valueOf(JSONHandler.highScoreRead(location));
+        String lastScore = String.valueOf(JSONHandler.lastScoreRead(location));
         highScoreLabel.setText(lastScore);
     }    
 
     /**
-     * Run when user click start button.
+     * An Action Event which run when user click start button.
      * @param event Click event, when the user click the button.
      * @throws IOException Input, Output Exception
      */
@@ -70,7 +88,7 @@ public class MenuViewController implements Initializable {
     }
 
     /**
-     * Run when user click shop button.
+     * An Action Event which run when user click shop button.
      * @param event Click event, when the user click the button.
      * @throws IOException Input, Output Exception
      */

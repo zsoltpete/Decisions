@@ -48,9 +48,9 @@ public class JSONHandler {
     private static Logger logger = LoggerFactory.getLogger(JSONHandler.class);
     
     /**
-     * Read JSON objects
+     * Read JSON objects and create a List of Questions
      * @param location Use to  locate JSON object file.
-     * @return A List with @{Question} objects.
+     * @return A List with Question objects.
      */
     public static List<Question> readQuestions(String location){
         JSONParser parser = new JSONParser();
@@ -108,11 +108,16 @@ public class JSONHandler {
 
     }
     
-      public static void highScoreWrite(Integer years, String location) {
+    /**
+     * Write a JSON file at the location with the given points
+     * @param points Points of the last play
+     * @param location Location of the new file, where create the last point JSON
+     */
+    public static void lastScoreWrite(Integer points, String location) {
 
         JSONObject obj = new JSONObject();
         obj.put("name", UserSettings.user.getName());
-        obj.put("point", years);
+        obj.put("point", points);
 
         try (FileWriter file = new FileWriter(System.getProperty("user.home") + "/" +location)) {
 
@@ -127,7 +132,12 @@ public class JSONHandler {
 
     }
 
-    public static Integer highScoreRead(String location){
+    /**
+     * Read of the JSON file from location and create an Integer from the value.
+     * @param location Location of the file where stored the last play's point
+     * @return Last play points which store in the JSON file
+     */
+    public static Integer lastScoreRead(String location){
     JSONParser parser = new JSONParser();
         double point = 3.0;
         try {
@@ -153,6 +163,11 @@ public class JSONHandler {
         return (int)point;
     }
     
+    /**
+     * Decide the location is exist or is not and returns the bool value
+     * @param location Location of the searched file
+     * @return Bool value of the existence of the location
+     */
     public static Boolean isExistLastScore(String location){
         String path = System.getProperty("user.home") + "/" +location;
         logger.debug(path);
@@ -166,6 +181,10 @@ public class JSONHandler {
         
     }
     
+    /**
+     * Create a folder at the location
+     * @param location Location of the file what create 
+     */
     public static void createFolder(String location){
         String path = System.getProperty("user.home") + "/" +location;
         File file = new File(path);
