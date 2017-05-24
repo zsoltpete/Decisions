@@ -72,6 +72,15 @@ public class TestGameHandler {
         GameHandler gameHandler = new GameHandler();
         Assert.assertEquals(gameHandler.sendGameOver(getMockUser()), true);
     }
+    @Test
+    public void testSendedGameOver(){
+        GameHandler gameHandler = new GameHandler();
+        User user = getMockUser();
+       for(int i=0;i<4;i++){
+            user.getSkills().set(i, new SimpleDoubleProperty(0.5));
+       }
+        Assert.assertEquals(gameHandler.sendGameOver(user), false);
+    }
     
     @Test
     public void updateAttributesWithAnswers(){
@@ -94,6 +103,20 @@ public class TestGameHandler {
     }
     
     @Test
+    public void testBestResultLessZero(){
+        GameHandler gameHandler = new GameHandler();
+        Assert.assertEquals(gameHandler.getBestResult(-1.0), 0.0);
+        
+    }
+    
+    @Test
+    public void testBestResultGreaterZero(){
+        GameHandler gameHandler = new GameHandler();
+        Assert.assertEquals(gameHandler.getBestResult(2.0), 1.0);
+        
+    }
+    
+    @Test
     public void testUpdateCash(){
         GameHandler gameHandler = new GameHandler();
         User user = getMockUser();
@@ -106,7 +129,7 @@ public class TestGameHandler {
         GameHandler gameHandler = new GameHandler();
         User user = getMockUser();
         
-        Double potionCount = user.getPotions().get(0).getValue()-1;
+        double potionCount = 0.0;
         if(potionCount >=0){
             user.getSkills().set(0, new SimpleDoubleProperty(0.2+user.getSkills().get(0).getValue()));
             user.getPotions().set(0, new SimpleDoubleProperty(potionCount));
@@ -114,5 +137,7 @@ public class TestGameHandler {
         
         Assert.assertEquals(gameHandler.updatePotion(getMockUser(), 0), user);
     }
+    
+    
     
 }

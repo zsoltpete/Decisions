@@ -54,6 +54,13 @@ public class TestShopHandler {
     }
     
     @Test
+    public void testUserCanBuyTrue(){
+        ShopHandler shopHandler = new ShopHandler();
+        boolean value = shopHandler.userCanBuy(11);
+        Assert.assertEquals(value, false);
+    }
+    
+    @Test
     public void testIncreasePotion(){
         ShopHandler shopHandler = new ShopHandler();
         User user = getMockUser();
