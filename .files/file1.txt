@@ -1,15 +1,15 @@
 {"questions":[{
 			  "id":"1",
-			  "name":"Egy munkatársad megkér hogy mosd fel a követ. Mit teszel?",
+			  "name":"Your co-worker ask you to was up? What will you do?",
 			   "answers" [{
-			    "answer":"Felmosok",
+			    "answer":"Wash up",
 			    "coin_value":"0.2",
 			    "business_value": "-0.1",
 			    "people_value": "0.3",
 			    "fun_value":"-0.4"
 			    },
 			    {
-			    "answer":"Nevetek",
+			    "answer":"Laugh",
 			    "coin_value":"0.0",
 			    "business_value": "0.1",
 			    "people_value": "-0.1",
@@ -18,16 +18,16 @@
 			  }
 {
 			  "id":"2",
-			  "name":"Kaptál egy ajándékot valakitől!",
+			  "name":"You get a gift from someone!",
 			   "answers" [{
-			    "answer":"Kibontom",
+			    "answer":"Open",
 			    "coin_value":"0.0",
 			    "business_value": "-0.3",
 			    "people_value": "-0.3",
 			    "fun_value":"0.1"
 			    },
 			    {
-			    "answer":"Eldobom",
+			    "answer":"Drop",
 			    "coin_value":"0.0",
 			    "business_value": "0.0",
 			    "people_value": "0.1",
@@ -36,16 +36,16 @@
 			  }
 			  {
 			  "id":"3",
-			  "name":"El kell menned hamarabb a munkából de egy fontos feladatot bíztak rád amivel nem vagy kész.",
+			  "name":"You have to leave from work earlier than usual. What will you do?",
 			   "answers" [{
-			    "answer":"Megcsinálom",
+			    "answer":"Stay",
 			    "coin_value":"0.2",
 			    "business_value": "0.2",
 			    "people_value": "-0.3",
-			    "fun_value":"-0.4"
+			    "fun_value":"-0.2"
 			    },
 			    {
-			    "answer":"Elmegyek",
+			    "answer":"Go",
 			    "coin_value":"-0.5",
 			    "business_value": "-0.2",
 			    "people_value": "0.2",
@@ -53,21 +53,56 @@
 			    }]
 			  }
 			  {
-			  "id":"1",
-			  "name":"Furcsa szagokra lettél figyelmes. Mit csinálsz?",
+			  "id":"4",
+			  "name":"You smell something nasty",
 			   "answers" [{
-			    "answer":"Szólok",
+			    "answer":"Report it",
 			    "coin_value":"0.0",
 			    "business_value": "0.0",
 			    "people_value": "-0.2",
 			    "fun_value":"0.2"
 			    },
 			    {
-			    "answer":"Nem szólok",
+			    "answer":"Not report",
 			    "coin_value":"0.0",
 			    "business_value": "0.0",
 			    "people_value": "0.2",
 			    "fun_value":"0.0"
+			    }]
+			  }
+			  {
+			  "id":"5",
+			  "name":"You have birthday today. You don't want to go work.",
+			   "answers" [{
+			    "answer":"Stay at home",
+			    "coin_value":"-0.2",
+			    "business_value": "-1.0",
+			    "people_value": "0.2",
+			    "fun_value":"0.5"
+			    },
+			    {
+			    "answer":"Go to work",
+			    "coin_value":"0.1",
+			    "business_value": "0.0",
+			    "people_value": "0.0",
+			    "fun_value":"-0.1"
+			    }]
+			  }{
+			  "id":"6",
+			  "name":"You find a good application online. Show or hide from the others?",
+			   "answers" [{
+			    "answer":"Show",
+			    "coin_value":"0.0",
+			    "business_value": "0.3",
+			    "people_value": "0.2",
+			    "fun_value":"0.5"
+			    },
+			    {
+			    "answer":"Nem szólok",
+			    "coin_value":"0.0",
+			    "business_value": "-0.2",
+			    "people_value": "-0.1",
+			    "fun_value":"-0.5"
 			    }]
 			  }
 
