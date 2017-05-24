@@ -114,7 +114,7 @@ public class JSONHandler {
         obj.put("name", UserSettings.user.getName());
         obj.put("point", years);
 
-        try (FileWriter file = new FileWriter(location)) {
+        try (FileWriter file = new FileWriter(System.getProperty("user.home") + "/" +location)) {
 
             file.write(obj.toJSONString());
             file.flush();
@@ -123,16 +123,16 @@ public class JSONHandler {
             logger.error(e.toString());
         }
 
-        logger.info("Successful write hightScore");
+        logger.info("Successful write last Score");
 
     }
 
     public static Integer highScoreRead(String location){
     JSONParser parser = new JSONParser();
-        double point = 0.0;
+        double point = 3.0;
         try {
 
-            Object obj = parser.parse(new FileReader(location));
+            Object obj = parser.parse(new FileReader(System.getProperty("user.home") + "/" + location));
 
             JSONObject jsonObject = (JSONObject) obj;
 
@@ -150,17 +150,26 @@ public class JSONHandler {
             logger.error(e.toString());
             //e.printStackTrace();
         }
-        System.out.println("fdfsdfda");
         return (int)point;
     }
     
     public static Boolean isExistLastScore(String location){
-        File f = new File(location);
-        if(f.exists() && !f.isDirectory()) { 
+        String path = System.getProperty("user.home") + "/" +location;
+        logger.debug(path);
+        File file = new File(path);
+        if(file.exists() && !file.isDirectory()) { 
+            logger.debug("true");
             return true;
         }
+        logger.debug("false");
         return false;
         
+    }
+    
+    public static void createFolder(String location){
+        String path = System.getProperty("user.home") + "/" +location;
+        File file = new File(path);
+        file.mkdir();
     }
     
 }
