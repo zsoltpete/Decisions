@@ -186,7 +186,7 @@ public class GameViewController implements Initializable {
             bindComponents();
         }else{
             bindComponents();
-            JSONHandler.highScoreWrite(nextYear, ".files/high-score.json");
+            JSONHandler.highScoreWrite(nextYear-1, ".files/last-score.json");
             gameOver();
         }
         
