@@ -86,31 +86,23 @@ public class ShopViewController implements Initializable {
 
     @FXML
     private void buyCoinPotion(ActionEvent event) {
-        user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
-        user = shopHandler.incrementPotion(user, 0);
-        bindComponents();
+        buyPotion(0);
     }
 
     @FXML
     private void buyBusinessPotion(ActionEvent event) {
-        user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
-        user = shopHandler.incrementPotion(user, 1);
-        bindComponents();
+        buyPotion(1);
     }
 
     @FXML
     private void buyPeoplePotion(ActionEvent event) {
-        user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
-        user = shopHandler.incrementPotion(user, 2);
-        bindComponents();
+        buyPotion(2);
     }
 
     @FXML
     private void buyFunPotion(ActionEvent event) {
+        buyPotion(3);
         
-        user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
-        user = shopHandler.incrementPotion(user, 3);
-        bindComponents();
     }
     
     /**
@@ -140,7 +132,12 @@ public class ShopViewController implements Initializable {
         updateButtons();
     }
     
-    
+    public void buyPotion(int index){
+        user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
+        user = shopHandler.incrementPotion(user, index);
+        cash = Integer.parseInt(user.getCash().get());
+        bindComponents();
+    }
 
     
 }
