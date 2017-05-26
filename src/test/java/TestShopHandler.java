@@ -1,6 +1,7 @@
 
 import com.petez.decisions.Controllers.ShopHandler;
 import com.petez.decisions.Models.User;
+import javafx.beans.property.SimpleDoubleProperty;
 import junit.framework.Assert;
 import org.junit.Test;
 
@@ -64,7 +65,7 @@ public class TestShopHandler {
     public void testIncreasePotion(){
         ShopHandler shopHandler = new ShopHandler();
         User user = getMockUser();
-        user.getPotions().get(0).set(2.0);
+        user.getPotions().set(0, new SimpleDoubleProperty(2.0));
         
         boolean value = shopHandler.userCanBuy(0);
         Assert.assertEquals(shopHandler.incrementPotion(getMockUser(), 0), user);

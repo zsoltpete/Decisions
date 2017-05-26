@@ -43,14 +43,15 @@ public class ShopHandler {
         
         public User incrementPotion(User user, int potionIndex){
             User changedUser = user;
+            System.out.println("Buy something");
             double potionCounter = user.getPotions().get(potionIndex).get();
-            changedUser.getPotions().get(potionIndex).set(++potionCounter);
+            changedUser.getPotions().set(potionIndex, new SimpleDoubleProperty(++potionCounter));
             
             return user;
         }
         
         public Boolean userCanBuy(int value){
-            if(value>10){
+            if(value>=10){
                 return false;
             }
             
