@@ -98,12 +98,288 @@
 			    "fun_value":"0.5"
 			    },
 			    {
-			    "answer":"Nem szólok",
+			    "answer":"Don't show",
 			    "coin_value":"0.0",
 			    "business_value": "-0.2",
 			    "people_value": "-0.1",
 			    "fun_value":"-0.5"
 			    }]
+			  }{
+			  "id":"7",
+			  "name":"You just see something",
+			   "answers" [{
+			    "answer":"Okey",
+			    "coin_value":"0.0",
+			    "business_value": "0.0",
+			    "people_value": "0.0",
+			    "fun_value":"0.0"
+			    },
+			    {
+			    "answer":"Okey",
+			    "coin_value":"0.0",
+			    "business_value": "0.0",
+			    "people_value": "0.0",
+			    "fun_value":"0.0"
+			    }]
+			  }{
+			  "id":"8",
+			  "name":"It's party time. Everybody is going and you?",
+			   "answers" [{
+			    "answer":"Go party",
+			    "coin_value":"-0.3",
+			    "business_value": "0.1",
+			    "people_value": "0.3",
+			    "fun_value":"0.5"
+			    },
+			    {
+			    "answer":"Stay, not go",
+			    "coin_value":"3.0",
+			    "business_value": "0.0",
+			    "people_value": "-0.4",
+			    "fun_value":"0.0"
+			    }]
+			  }{
+			  "id":"9",
+			  "name":"You find mistake in your artifact. Scold everyone or motivate everyone to fix it?",
+			   "answers" [{
+			    "answer":"Scold",
+			    "coin_value":"-0.3",
+			    "business_value": "-0.3",
+			    "people_value": "0.0",
+			    "fun_value":"-0.2"
+			    },
+			    {
+			    "answer":"Motivate",
+			    "coin_value":"-0.3",
+			    "business_value": "0.0",
+			    "people_value": "0.1",
+			    "fun_value":"-0.4"
+			    }]
 			  }
+			  {
+			  "id":"10",
+			  "name":"You just wake up in the morning and show up the Devil",
+			   "answers" [{
+			    "answer":"Wake up",
+			    "coin_value":"0.0",
+			    "business_value": "0.0",
+			    "people_value": "0.0",
+			    "fun_value":"-0.3"
+			    },
+			    {
+			    "answer":"Ask something",
+			    "coin_value":"-1.0",
+			    "business_value": "-1.0",
+			    "people_value": "-1.0",
+			    "fun_value":"-1.0"
+			    }]
+			  }{
+			  "id":"11",
+			  "name":"Realized it was just a dream and you can't sleep back",
+			   "answers" [{
+			    "answer":"Drink coffe",
+			    "coin_value":"0.0",
+			    "business_value": "0.2",
+			    "people_value": "0.0",
+			    "fun_value":"0.1"
+			    },
+			    {
+			    "answer":"Drink tea",
+			    "coin_value":"0.0",
+			    "business_value": "0.0",
+			    "people_value": "0.0",
+			    "fun_value":"0.3"
+			    }]
+			  }{
+			  "id":"101",
+			  "name":"You realize some confict in your team.",
+			   "answers" [{
+			    "answer":"Try solve",
+			    "coin_value":"-0.1",
+			    "business_value": "-0.3",
+			    "people_value": "-0.4",
+			    "fun_value":"-0.3"
+			    },
+			    {
+			    "answer":"Ignore",
+			    "coin_value":"-0.2",
+			    "business_value": "-0.5",
+			    "people_value": "-0.5",
+			    "fun_value":"-0.4"
+			    }]
+			    }
+			  {
+			  "id":"12",
+			  "name":"In the office told your dream and your co-worker have a new project idea",
+			   "answers" [{
+			    "answer":"Talk about it",
+			    "coin_value":"-0.3",
+			    "business_value": "0.3",
+			    "people_value": "0.0",
+			    "fun_value":"0.1"
+			    },
+			    {
+			    "answer":"Ignore it",
+			    "coin_value":"0.0",
+			    "business_value": "-0.5",
+			    "people_value": "-0.3",
+			    "fun_value":"-0.3"
+			    }]
+			    }{
+			  "id":"13",
+			  "name":"You got an strange email from someone. It's is new project or a fake something",
+			   "answers" [{
+			    "answer":"Open",
+			    "coin_value":"-0.9",
+			    "business_value": "-0.7",
+			    "people_value": "0.2",
+			    "fun_value":"-0.5"
+			    },
+			    {
+			    "answer":"Drop it",
+			    "coin_value":"0.0",
+			    "business_value": "0.1",
+			    "people_value": "0.0",
+			    "fun_value":"0.1"
+			    }]
+			    }{
+			  "id":"14",
+			  "name":"Your client appears 10:00 and you wait for 11:00. What will you do?",
+			   "answers" [{
+			    "answer":"Ask to come back later",
+			    "coin_value":"0.0",
+			    "business_value": "-0.4",
+			    "people_value": "0.0",
+			    "fun_value":"-0.3"
+			    },
+			    {
+			    "answer":"Invite to your office",
+			    "coin_value":"0.2",
+			    "business_value": "-0.4",
+			    "people_value": "0.1",
+			    "fun_value":"-0.4"
+			    }]
+			    }{
+			  "id":"15",
+			  "name":"You have no lunch today and you are so hungry",
+			   "answers" [{
+			    "answer":"Order pizza",
+			    "coin_value":"-0.2",
+			    "business_value": "0.0",
+			    "people_value": "0.2",
+			    "fun_value":"0.2"
+			    },
+			    {
+			    "answer":"Go to a restaurant",
+			    "coin_value":"-0.4",
+			    "business_value": "0.0",
+			    "people_value": "-0.2",
+			    "fun_value":"0.0"
+			    }]
+			    }{
+			  "id":"102",
+			  "name":"You forget meeting with yout team member. It was important.",
+			   "answers" [{
+			    "answer":"Ask a new meeting",
+			    "coin_value":"0.0",
+			    "business_value": "-0.3",
+			    "people_value": "-0.5",
+			    "fun_value":"0.0"
+			    },
+			    {
+			    "answer":"Talk with him",
+			    "coin_value":"0.0",
+			    "business_value": "-0.4",
+			    "people_value": "-0.3",
+			    "fun_value":"0.0"
+			    }]
+			    }{
+			  "id":"16",
+			  "name":"After lunch you have no energy to work",
+			   "answers" [{
+			    "answer":"Drink coffe",
+			    "coin_value":"0.0",
+			    "business_value": "0.0",
+			    "people_value": "0.0",
+			    "fun_value":"0.1"
+			    },
+			    {
+			    "answer":"Walk around the office",
+			    "coin_value":"0.0",
+			    "business_value": "0.0",
+			    "people_value": "0.0",
+			    "fun_value":"0.0"
+			    }]
+			    }{
+			  "id":"17",
+			  "name":"Realized you have so much work to do.",
+			   "answers" [{
+			    "answer":"Delegate",
+			    "coin_value":"0.3",
+			    "business_value": "0.0",
+			    "people_value": "-0.5",
+			    "fun_value":"0.2"
+			    },
+			    {
+			    "answer":"Do it",
+			    "coin_value":"0.3",
+			    "business_value": "0.1",
+			    "people_value": "0.0",
+			    "fun_value":"-0.5"
+			    }]
+			    }{
+			  "id":"18",
+			  "name":"End of the work you need some fun. What will you do?",
+			   "answers" [{
+			    "answer":"Random party",
+			    "coin_value":"-0.4",
+			    "business_value": "0.2",
+			    "people_value": "0.1",
+			    "fun_value":"0.2"
+			    },
+			    {
+			    "answer":"Random play",
+			    "coin_value":"-0.1",
+			    "business_value": "0.1",
+			    "people_value": "0.3",
+			    "fun_value":"0.1"
+			    }]
+			    }{
+			  "id":"19",
+			  "name":"It was too good fun yesterday. You have a head ache and you wake up at 10 o'clock",
+			   "answers" [{
+			    "answer":"Free day to everyone",
+			    "coin_value":"-0.5",
+			    "business_value": "-0.3",
+			    "people_value": "0.4",
+			    "fun_value":"0.0"
+			    },
+			    {
+			    "answer":"Go to work",
+			    "coin_value":"-0.1",
+			    "business_value": "-0.1",
+			    "people_value": "0.0",
+			    "fun_value":"0.0"
+			    }]
+			    }
+			    {
+			  "id":"20",
+			  "name":"The office is a mess",
+			   "answers" [{
+			    "answer":"Try clean",
+			    "coin_value":"0.0",
+			    "business_value": "-0.3",
+			    "people_value": "-0.3",
+			    "fun_value":"-0.6"
+			    },
+			    {
+			    "answer":"Call specialist",
+			    "coin_value":"-0.5",
+			    "business_value": "-0.2",
+			    "people_value": "0.1",
+			    "fun_value":"0.1"
+			    }]
+			    }
+			  
 
 	      ]}
