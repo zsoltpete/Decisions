@@ -40,8 +40,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * FXML Controller class
- * Use to navigate to the shop or start the game.
+ * FXML Controller class.
  * @author petez
  */
 public class MenuViewController implements Initializable {

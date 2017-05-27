@@ -26,7 +26,7 @@ package com.petez.decisions.Models;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- * Represent answers
+ * Represent answers.
  * @author petez
  */
 public class Answer {
@@ -54,7 +54,7 @@ public class Answer {
     }
 
     /**
-     * Returns answer name
+     * Returns answer name.
      * @return answer name
      */
     public SimpleStringProperty getAnswer() {
@@ -102,7 +102,7 @@ public class Answer {
     }
 
     /**
-     * Set coin change
+     * Set coin change.
      * @param coinValue coin changing
      */
     public void setCoinValue(double coinValue) {
@@ -118,7 +118,7 @@ public class Answer {
     }
 
     /**
-     * Set people change
+     * Set people change.
      * @param peopleValue people changing
      */
     public void setPeopleValue(double peopleValue) {
@@ -126,7 +126,7 @@ public class Answer {
     }
 
     /**
-     * Set fun change
+     * Set fun change.
      * @param funValue fun changing
      */
     public void setFunValue(double funValue) {

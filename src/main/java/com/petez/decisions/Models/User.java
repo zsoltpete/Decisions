@@ -35,7 +35,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
- *  Representing @{User} class.
+ *  Representing User class.
  * @author petez
  */
 public class User {
@@ -50,7 +50,7 @@ public class User {
      * Constructs a new User attribute with the given id, name and cash.
      * @param id Show the user id, which is an unique value.
      * @param name Show user name.
-     * @param cash Represent user cash. This important to buy @{Potion}
+     * @param cash Represent user cash. This important to buy potion
      */
     public User(int id, String name, int cash) {
         DoubleProperty[] doubles = new DoubleProperty[4];
@@ -106,6 +106,10 @@ public class User {
         return potions;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "User{" + "id=" + id + ", name=" + name + ", cash=" + cash + ", skills=" + skills + ", potions=" + potions + '}';
@@ -115,7 +119,7 @@ public class User {
 
     /**
      * Set user's id.
-     * @param  user's id.
+     * @param id user's id.
      */
     public void setId(int id) {
         this.id = id;
@@ -123,7 +127,7 @@ public class User {
 
     /**
      * Set user's name.
-     * @param  user's name.
+     * @param name user's name
      */
     public void setName(String name) {
         this.name = name;
@@ -131,7 +135,7 @@ public class User {
 
     /**
      * Set user's cash.
-     * @param  user's cash.
+     * @param  cash user's cash.
      */
     public void setCash(int cash) {
         this.cash.setValue(String.valueOf(cash));
@@ -139,7 +143,7 @@ public class User {
 
     /**
      * Set user's id.
-     * @param  user's id.
+     * @param cash user's cash
      */
     public void setCash(StringProperty cash) {
         this.cash = cash;
@@ -147,7 +151,8 @@ public class User {
 
     /**
      * Set user's skills.
-     * @param  user's skills.
+     * @param skills
+     * @param  skills user's skills represent list
      */
     public void setSkills(List<DoubleProperty> skills) {
         this.skills = skills;
@@ -155,12 +160,16 @@ public class User {
 
     /**
      * Set user's skills.
-     * @param  user's skills.
+     * @param potions user's actual potions values represent list
      */
     public void setPotions(List<DoubleProperty> potions) {
         this.potions = potions;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -172,6 +181,11 @@ public class User {
         return hash;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

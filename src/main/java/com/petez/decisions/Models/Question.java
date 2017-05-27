@@ -30,7 +30,6 @@ import javafx.beans.property.StringProperty;
 
 /**
  * Represent Questions.
- * Question will be displayed to the user.
  * @author petez
  */
 public class Question {
@@ -77,7 +76,7 @@ public class Question {
     
     /**
      * Set question id.
-     * @param  question id.
+     * @param id id of question
      */
     public void setId(int id) {
         this.id = id;
@@ -85,7 +84,7 @@ public class Question {
 
     /**
      * Set question name.
-     * @param  question name.
+     * @param name name of the question
      */
     public void setName(SimpleStringProperty name) {
         this.name = name;
@@ -93,7 +92,7 @@ public class Question {
 
     /**
      * Set question answers.
-     * @param  answers to the questions.
+     * @param  answers List of the questions.
      */
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
@@ -108,6 +107,10 @@ public class Question {
         return "Question{" + "id=" + id + ", name=" + name + ", answers=" + answers + '}';
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 3;
@@ -117,6 +120,11 @@ public class Question {
         return hash;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

@@ -35,6 +35,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 public class GameHandler {
     /**
      * User skills check.
+     * @param user  The actual user who play the game
      * @return @{false} if user has no skills with 0 value @{true} if one of the user skills is 0.
      */
     public boolean sendGameOver(User user){
@@ -48,6 +49,8 @@ public class GameHandler {
     
     /**
      * Initialize skill and add a start value.
+     * @param user  The actual user who play the game
+     * @return Modified user with the initialized skills
      */
     public User initSkills(User user){
         user.getSkills().set(0, new SimpleDoubleProperty(0.5));
@@ -58,8 +61,11 @@ public class GameHandler {
     }
     
     /**
-     * Update the user skills
-     * @param index Represent the selected answer index
+     * Update the user skills, with the actual answer.
+     * It will change the user's attributes.
+     * @param user The actual user who play the game
+     * @param answer The answer, which belongs to the actual question
+     * @return Modified user with modified skills 
      */
     public User updateAttributesWithAnswers(User user, Answer answer){
         
@@ -74,8 +80,8 @@ public class GameHandler {
     /**
      * Use to minimize or maximize skill point.
      * The skill point never be under 0 or between 1.
-     * @param input
-     * @return
+     * @param input Value what will be decide 0, 1 or actual value
+     * @return a double value of input after decide
      */
     public double getBestResult(double input){
         if(input<0){
@@ -89,8 +95,10 @@ public class GameHandler {
     
         
     /**
-     * Decide the user have one or more potion of the selected potion
+     * Decide the user have one or more potion of the selected potion.
+     * @param user  The actual user who play the game
      * @param selectedPotion Represent the selected potion index.
+     * @return  The modified user with the modied potions
      */
     public User updatePotion(User user, int selectedPotion){
         Double potionCount = user.getPotions().get(selectedPotion).getValue()-1;
@@ -106,6 +114,8 @@ public class GameHandler {
     /**
      * Update the cash.
      * User get one coin for every year
+     * @param user  The actual user who play the game
+     * @return  The actual user who play the game
      */
     public User updateCash(User user){
         int cash = Integer.parseInt(user.getCash().get());

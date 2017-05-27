@@ -34,14 +34,23 @@ public class ShopHandler {
     
     /**
      * Update user cash property. 
+     * @param cash Actual value of user's cash
      * @param value Represent how much what the user spend on potions.
+     * @return cash integer value after buy potion
      */
         public int updateUserCash(int cash, int value){
         cash = cash-value;
         return cash;
     }
         
-        public User incrementPotion(User user, int potionIndex){
+    /**
+     * Increment by one the indexed potion.
+     * Increment the indexed potion by one and change the user with this modified value
+     * @param user  The actual user who play the game
+     * @param potionIndex Selected potion index
+     * @return The modified user with modified potion
+     */
+    public User incrementPotion(User user, int potionIndex){
             User changedUser = user;
             System.out.println("Buy something");
             double potionCounter = user.getPotions().get(potionIndex).get();
@@ -50,7 +59,12 @@ public class ShopHandler {
             return user;
         }
         
-        public Boolean userCanBuy(int value){
+    /**
+     * Checking the user can buy any of the potions.
+     * @param value Represent user cash
+     * @return True if user have enough money to buy potion otherwise false
+     */
+    public Boolean userCanBuy(int value){
             if(value>=10){
                 return false;
             }

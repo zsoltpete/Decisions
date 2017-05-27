@@ -26,13 +26,13 @@ package com.petez.decisions.Controllers;
 import com.petez.decisions.Models.User;
 
 /**
- * User represent class
+ * User represent class.
  * @author petez
  */
 public class UserSettings {
     
     /**
-     * Singleton, what represent the user
+     * Singleton, what represent the actual user.
      */
     public static User user;
     

@@ -38,7 +38,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
+ * FXML Controller class.
  *
  * @author petez
  */
@@ -132,6 +132,10 @@ public class ShopViewController implements Initializable {
         updateButtons();
     }
     
+    /**
+     *
+     * @param index
+     */
     public void buyPotion(int index){
         user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
         user = shopHandler.incrementPotion(user, index);

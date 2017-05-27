@@ -48,7 +48,7 @@ public class JSONHandler {
     private static Logger logger = LoggerFactory.getLogger(JSONHandler.class);
     
     /**
-     * Read JSON objects and create a List of Questions
+     * Read JSON objects and create a List of Questions.
      * @param location Use to  locate JSON object file.
      * @return A List with Question objects.
      */
@@ -109,7 +109,7 @@ public class JSONHandler {
     }
     
     /**
-     * Write a JSON file at the location with the given points
+     * Write a JSON file at the location with the given points.
      * @param points Points of the last play
      * @param location Location of the new file, where create the last point JSON
      */
@@ -164,7 +164,7 @@ public class JSONHandler {
     }
     
     /**
-     * Decide the location is exist or is not and returns the bool value
+     * Decide the location is exist or is not and returns the bool value.
      * @param location Location of the searched file
      * @return Bool value of the existence of the location
      */
@@ -182,7 +182,7 @@ public class JSONHandler {
     }
     
     /**
-     * Create a folder at the location
+     * Create a folder at the location.
      * @param location Location of the file what create 
      */
     public static void createFolder(String location){

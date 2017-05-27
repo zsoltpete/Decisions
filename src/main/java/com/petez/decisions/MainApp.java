@@ -10,13 +10,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
+ * Main class of Decisions.
  * @author petez
  */
 public class MainApp extends Application {
 
     /**
-     *
+     * 
      * @param stage
      * @throws Exception
      */

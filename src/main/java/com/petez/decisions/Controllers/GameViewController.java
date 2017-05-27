@@ -123,7 +123,7 @@ public class GameViewController implements Initializable {
     }    
 
     /**
-     * Action to go back to the Main menu
+     * Action to go back to the Main menu.
      * @param event Click event, when the user click the button.
      */
     @FXML
@@ -231,7 +231,7 @@ public class GameViewController implements Initializable {
     }
 
     /**
-     * Run when user click and use a @{coin} potion
+     * Run when user click and use a coin potion.
      * @param event Click event, when the user click the button.
      * @throws IOException Input, Output Exception
      */
@@ -243,9 +243,8 @@ public class GameViewController implements Initializable {
     }
 
     /**
-     * Run when user click and use a @{business} potion
+     * Run when user click and use a business potion.
      * @param event Click event, when the user click the button.
-     * @throws IOException Input, Output Exception
      */
     @FXML
     public void useBusinessPotion(MouseEvent event) {
@@ -255,7 +254,7 @@ public class GameViewController implements Initializable {
     }
 
     /**
-     * Run when user click and use a @{people} potion
+     * Run when user click and use a people potion.
      * @param event Click event, when the user click the button.
      * @throws IOException Input, Output Exception
      */
@@ -267,9 +266,8 @@ public class GameViewController implements Initializable {
     }
 
     /**
-     * Run when user click and use a @{fun} potion
+     * Run when user click and use a fun potion.
      * @param event Click event, when the user click the button.
-     * @throws IOException Input, Output Exception
      */
     @FXML
     public void useFunPotion(MouseEvent event) {

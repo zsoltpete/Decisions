@@ -48,8 +48,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
- *
+ * FXML Controller class.
  * @author petez
  */
 public class GameOverPopUpViewController implements Initializable {
