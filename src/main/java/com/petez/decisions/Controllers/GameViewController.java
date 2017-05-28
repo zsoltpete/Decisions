@@ -117,7 +117,7 @@ public class GameViewController implements Initializable {
         user = gameHandler.initSkills(user);
         logger.info(user.getName());
         
-        questions = JSONHandler.readQuestions(".files/file1.txt");
+        questions = JSONHandler.readQuestions("src/main/resources/questions.json");
         actualQuestion = questions.get(0);
         bindComponents();
     }    
