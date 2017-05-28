@@ -99,8 +99,8 @@ public class Question {
     }
 
     /**
-     *
-     * @return
+     * Object convert to String.
+     * @return A String with the objects properties
      */
     @Override
     public String toString() {
@@ -108,8 +108,8 @@ public class Question {
     }
 
     /**
-     *
-     * @return
+     * Returns a hash code value for the object. This method is supported for the benefit of hash tables such as those provided by HashMap.
+     * @return a hash code value for this object.
      */
     @Override
     public int hashCode() {

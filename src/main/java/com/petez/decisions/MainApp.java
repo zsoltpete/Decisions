@@ -16,9 +16,9 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 
     /**
-     * 
-     * @param stage
-     * @throws Exception
+     * Start the program.
+     * @param stage Main window
+     * @throws Exception Exception if file doesn't exist
      */
     @Override
     public void start(Stage stage) throws Exception {

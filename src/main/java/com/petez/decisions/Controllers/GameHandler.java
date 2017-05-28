@@ -36,7 +36,7 @@ public class GameHandler {
     /**
      * User skills check.
      * @param user  The actual user who play the game
-     * @return @{false} if user has no skills with 0 value @{true} if one of the user skills is 0.
+     * @return false if user has no skills with 0 value true if one of the user skills is 0.
      */
     public boolean sendGameOver(User user){
         for(int i = 0;i<4;i++){

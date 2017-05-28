@@ -134,8 +134,8 @@ public class Answer {
     }
 
     /**
-     *
-     * @return
+     * Object convert to String.
+     * @return A String with the objects properties
      */
     @Override
     public String toString() {

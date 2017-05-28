@@ -107,8 +107,8 @@ public class User {
     }
 
     /**
-     *
-     * @return
+     * Object convert to String.
+     * @return A String with the objects properties
      */
     @Override
     public String toString() {
@@ -151,7 +151,6 @@ public class User {
 
     /**
      * Set user's skills.
-     * @param skills
      * @param  skills user's skills represent list
      */
     public void setSkills(List<DoubleProperty> skills) {
@@ -167,8 +166,8 @@ public class User {
     }
 
     /**
-     *
-     * @return
+     * Returns a hash code value for the object. This method is supported for the benefit of hash tables such as those provided by HashMap.
+     * @return a hash code value for this object.
      */
     @Override
     public int hashCode() {
@@ -182,9 +181,9 @@ public class User {
     }
 
     /**
-     *
-     * @param obj
-     * @return
+     * Indicates whether some other object is "equal to" this one.
+     * @param obj the reference object with which to compare.
+     * @return true if this object is the same as the obj argument; false otherwise.
      */
     @Override
     public boolean equals(Object obj) {
