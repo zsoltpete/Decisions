@@ -256,7 +256,6 @@ public class GameViewController implements Initializable {
     /**
      * Run when user click and use a people potion.
      * @param event Click event, when the user click the button.
-     * @throws IOException Input, Output Exception
      */
     @FXML
     public void usePeoplePotion(MouseEvent event) {

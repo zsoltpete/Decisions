@@ -133,8 +133,8 @@ public class ShopViewController implements Initializable {
     }
     
     /**
-     *
-     * @param index
+     * Buy one of the potion from the shop.
+     * @param index Selected potion index
      */
     public void buyPotion(int index){
         user.getCash().setValue(String.valueOf(shopHandler.updateUserCash(cash,10)));
